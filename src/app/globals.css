@@ -789,6 +789,96 @@ a {
     outline-offset: 0.35rem;
   }
 
+  .about-page-shell {
+    padding-block: 3.75rem 5rem;
+  }
+
+  .about-page-stack {
+    gap: 1.35rem;
+  }
+
+  .about-hero {
+    display: grid;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+
+  .about-hero-copy {
+    display: grid;
+    gap: 1rem;
+    max-width: 42rem;
+  }
+
+  .about-hero-heading {
+    max-width: 42rem;
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 2.65rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .about-overview-panel {
+    border: 1px solid var(--gold-border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
+      rgba(17, 17, 17, 0.9);
+    padding: 1.25rem;
+  }
+
+  .about-mission,
+  .about-philosophy {
+    display: grid;
+    gap: 1.5rem;
+    border: 1px solid var(--gold-border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 52%),
+      var(--surface);
+    padding: 1.5rem;
+  }
+
+  .about-section-block {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .about-focus-grid {
+    display: grid;
+    gap: 1.15rem;
+  }
+
+  .about-focus-card {
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(212, 175, 55, 0.035), transparent 42%),
+      var(--surface);
+    padding: 1.35rem;
+    transition:
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .about-focus-card:hover {
+    border-color: var(--gold-border);
+    transform: translateY(-2px);
+  }
+
+  .philosophy-list {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .philosophy-point {
+    border-left: 2px solid var(--gold-border);
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    padding-left: 1rem;
+  }
+
   .home-page {
     overflow: hidden;
   }
@@ -1083,11 +1173,20 @@ a {
     padding: 1.5rem;
   }
 
+  .about-mission,
+  .about-philosophy {
+    padding: 2rem;
+  }
+
   .projects-page-shell {
     padding-block: 4.5rem 6rem;
   }
 
   .videos-page-shell {
+    padding-block: 4.5rem 6rem;
+  }
+
+  .about-page-shell {
     padding-block: 4.5rem 6rem;
   }
 
@@ -1099,6 +1198,10 @@ a {
     font-size: 3.25rem;
   }
 
+  .about-hero-heading {
+    font-size: 3.25rem;
+  }
+
   .projects-overview-panel {
     padding: 1.5rem;
   }
@@ -1107,11 +1210,19 @@ a {
     padding: 1.5rem;
   }
 
+  .about-overview-panel {
+    padding: 1.5rem;
+  }
+
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .video-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .about-focus-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1127,6 +1238,10 @@ a {
   }
 
   .videos-page-shell {
+    padding-block: 5.25rem 7rem;
+  }
+
+  .about-page-shell {
     padding-block: 5.25rem 7rem;
   }
 
@@ -1186,11 +1301,26 @@ a {
     gap: 2rem;
   }
 
+  .about-hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
+    gap: 2rem;
+  }
+
+  .about-mission,
+  .about-philosophy {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+    align-items: start;
+  }
+
   .project-hero-heading {
     font-size: 3.65rem;
   }
 
   .video-hero-heading {
+    font-size: 3.65rem;
+  }
+
+  .about-hero-heading {
     font-size: 3.65rem;
   }
 
@@ -1217,6 +1347,10 @@ a {
     padding-block: 5.5rem 7.5rem;
   }
 
+  .about-page-shell {
+    padding-block: 5.5rem 7.5rem;
+  }
+
   .site-container {
     width: min(calc(100% - 4rem), 80rem);
   }
@@ -1237,11 +1371,19 @@ a {
     padding: 1.15rem;
   }
 
+  .about-focus-card {
+    padding: 1.5rem;
+  }
+
   .project-hero-heading {
     font-size: 3.9rem;
   }
 
   .video-hero-heading {
+    font-size: 3.9rem;
+  }
+
+  .about-hero-heading {
     font-size: 3.9rem;
   }
 }
@@ -1262,6 +1404,7 @@ a {
   .project-card-link,
   .video-card,
   .video-card-link,
+  .about-focus-card,
   .footer-social-link {
     transition: none;
   }
@@ -1275,6 +1418,7 @@ a {
   .project-card-link:hover,
   .video-card:hover,
   .video-card-link:hover,
+  .about-focus-card:hover,
   .footer-social-link:hover {
     transform: none;
   }
