@@ -200,10 +200,17 @@ a {
   .mobile-menu {
     display: none !important;
   }
+
+  .snack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @layer components {
   .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
     border-bottom: 1px solid var(--gold-separator);
     background: rgba(3, 3, 3, 0.94);
     backdrop-filter: blur(16px);
@@ -340,6 +347,81 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background: var(--background-secondary);
+  }
+
+  .snacks-hero {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 50rem;
+  }
+
+  .featured-snack {
+    display: grid;
+    gap: 1.5rem;
+    border: 1px solid var(--gold-border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 52%),
+      var(--surface);
+    padding: 1.5rem;
+  }
+
+  .category-badge {
+    width: fit-content;
+    border: 1px solid var(--gold-border);
+    border-radius: 999px;
+    background: rgba(212, 175, 55, 0.08);
+    color: var(--hover-gold);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.4rem 0.65rem;
+    text-transform: uppercase;
+  }
+
+  .snack-grid {
+    display: grid;
+    gap: 1.15rem;
+  }
+
+  .snack-card {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(212, 175, 55, 0.04), transparent 44%),
+      var(--surface);
+    padding: 1.35rem;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .snack-card:hover {
+    border-color: var(--gold-border);
+    transform: translateY(-2px);
+  }
+
+  .snack-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .snack-card .card-text {
+    margin-top: 0;
+  }
+
+  .read-time {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: nowrap;
   }
 
   .home-page {
@@ -585,6 +667,10 @@ a {
     padding: 2.5rem;
   }
 
+  .featured-snack {
+    padding: 2rem;
+  }
+
 }
 
 @media (min-width: 1024px) {
@@ -622,6 +708,11 @@ a {
     padding: 3rem;
   }
 
+  .featured-snack {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
   .footer-content {
     flex-direction: row;
     align-items: center;
@@ -657,14 +748,16 @@ a {
   .mobile-menu,
   .button-link,
   .preview-card,
-  .video-placeholder {
+  .video-placeholder,
+  .snack-card {
     transition: none;
   }
 
   .site-header .nav-link:hover,
   .button-link:hover,
   .preview-card:hover,
-  .video-placeholder:hover {
+  .video-placeholder:hover,
+  .snack-card:hover {
     transform: none;
   }
 }
