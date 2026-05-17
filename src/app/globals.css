@@ -1,26 +1,126 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #171717;
+  --background: #08090d;
+  --background-soft: #10131a;
+  --surface: #151922;
+  --surface-strong: #1e2530;
+  --foreground: #f5f7fb;
+  --muted: #9ca8b8;
+  --accent: #38e8ff;
+  --accent-warm: #f4c95d;
+  --border-soft: rgba(255, 255, 255, 0.12);
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-soft: var(--background-soft);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-warm: var(--accent-warm);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: var(--background);
 }
 
 body {
-  background: var(--background);
+  min-height: 100%;
+  background:
+    radial-gradient(circle at top left, rgba(56, 232, 255, 0.16), transparent 30rem),
+    radial-gradient(circle at bottom right, rgba(244, 201, 93, 0.1), transparent 26rem),
+    linear-gradient(135deg, #08090d 0%, #10131a 54%, #0c1016 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(56, 232, 255, 0.3);
+  color: var(--foreground);
+}
+
+a {
+  color: inherit;
+}
+
+@layer components {
+  .page-shell {
+    min-height: 100vh;
+    padding: 6rem 1.5rem;
+  }
+
+  .site-container {
+    width: min(100%, 72rem);
+    margin-inline: auto;
+  }
+
+  .section-stack {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .eyebrow {
+    color: var(--accent);
+    font-family: var(--font-geist-mono), monospace;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0;
+    text-transform: uppercase;
+  }
+
+  .display-heading {
+    max-width: 48rem;
+    font-size: 2.75rem;
+    font-weight: 750;
+    line-height: 0.95;
+  }
+
+  .lead-text {
+    max-width: 40rem;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .foundation-panel {
+    border: 1px solid var(--border-soft);
+    border-radius: 0.5rem;
+    background: rgba(21, 25, 34, 0.72);
+    box-shadow: 0 1.5rem 5rem rgba(0, 0, 0, 0.28);
+  }
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding: 7rem 2rem;
+  }
+
+  .display-heading {
+    font-size: 4rem;
+  }
+
+  .lead-text {
+    font-size: 1.125rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-shell {
+    padding-block: 8rem;
+  }
+
+  .display-heading {
+    font-size: 5.25rem;
+  }
 }

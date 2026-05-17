@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "The Cyber Snacks",
-  description: "A clean Next.js starter for The Cyber Snacks.",
+  description: "A dark, clean Next.js foundation for The Cyber Snacks.",
 };
 
 export default function RootLayout({

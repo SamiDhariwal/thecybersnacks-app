@@ -1,17 +1,20 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center px-6 py-24">
-      <section className="max-w-2xl text-center">
-        <p className="text-sm font-semibold uppercase text-cyan-700">
-          The Cyber Snacks
-        </p>
-        <h1 className="mt-4 text-4xl font-semibold text-zinc-950">
-          Clean Next.js starter is ready.
+    <main className="page-shell">
+      <section className="site-container section-stack">
+        <p className="eyebrow">The Cyber Snacks</p>
+        <h1 className="display-heading">
+          A clean cyber foundation for the next build step.
         </h1>
-        <p className="mt-6 text-base leading-7 text-zinc-600">
-          TypeScript, Tailwind CSS, and the App Router are set up for the next
-          step.
+        <p className="lead-text">
+          The app now has a dark visual system, readable typography, and simple
+          layout helpers ready for future pages and components.
         </p>
+        <div className="foundation-panel mt-6 max-w-xl p-6">
+          <p className="font-mono text-sm text-muted">
+            Next.js + TypeScript + Tailwind CSS
+          </p>
+        </div>
       </section>
     </main>
   );
