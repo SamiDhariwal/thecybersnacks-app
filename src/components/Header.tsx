@@ -1,40 +1,99 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/snacks", label: "Snacks" },
+  { href: "/projects", label: "Projects" },
+  { href: "/videos", label: "Videos" },
   { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
-  return (
-    <header className="border-b border-white/10 bg-background/85 backdrop-blur">
-      <div className="site-container flex flex-col gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8">
-        <Link
-          href="/"
-          className="group inline-flex w-fit flex-col gap-1 transition-colors hover:text-accent"
-        >
-          <span className="font-mono text-xs uppercase text-accent">
-            The Cyber
-          </span>
-          <span className="text-lg font-semibold leading-none">
-            Snacks
-          </span>
-        </Link>
+  const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const mobileMenuId = "mobile-menu";
 
-        <nav aria-label="Main navigation">
-          <ul className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm font-medium text-muted">
-            {navLinks.map((link) => (
-              <li key={link.href}>
+  function isActiveLink(href: string) {
+    return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  }
+
+  return (
+    <header className="site-header">
+      <div className="site-container site-header-inner">
+        <div className="site-header-row">
+          <Link
+            href="/"
+            className="brand-mark"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <span className="brand-kicker">The Cyber</span>
+            <span className="brand-focus">Snacks</span>
+          </Link>
+
+          <nav className="desktop-nav" aria-label="Main navigation">
+            {navLinks.map((link) => {
+              const isActive = isActiveLink(link.href);
+
+              return (
                 <Link
+                  key={link.href}
                   href={link.href}
-                  className="transition-colors hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
+                  aria-current={isActive ? "page" : undefined}
+                  className={`nav-link ${isActive ? "nav-link-active" : ""}`}
                 >
                   {link.label}
                 </Link>
-              </li>
-            ))}
-          </ul>
+              );
+            })}
+          </nav>
+
+          <div className="mobile-header-actions">
+            <button
+              type="button"
+              className="hamburger-button"
+              aria-label={
+                isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+              }
+              aria-expanded={isMenuOpen}
+              aria-controls={mobileMenuId}
+              onClick={() => setIsMenuOpen((current) => !current)}
+            >
+              <span className="hamburger-line" />
+              <span className="hamburger-line" />
+              <span className="hamburger-line" />
+            </button>
+          </div>
+        </div>
+
+        <nav
+          id={mobileMenuId}
+          className={`mobile-menu ${isMenuOpen ? "is-open" : ""}`}
+          aria-label="Mobile navigation"
+          aria-hidden={!isMenuOpen}
+        >
+          {navLinks.map((link) => {
+            const isActive = isActiveLink(link.href);
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive ? "page" : undefined}
+                className={`nav-link mobile-nav-link ${
+                  isActive ? "nav-link-active" : ""
+                }`}
+                tabIndex={isMenuOpen ? undefined : -1}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </header>
