@@ -355,6 +355,15 @@ a {
     max-width: 50rem;
   }
 
+  .snacks-page-stack {
+    gap: 2.4rem;
+  }
+
+  .snacks-list-heading .card-text {
+    margin-top: 0;
+    max-width: 38rem;
+  }
+
   .featured-snack {
     display: grid;
     gap: 1.5rem;
@@ -1630,6 +1639,10 @@ a {
   .featured-snack {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: end;
+  }
+
+  .snack-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .snack-article-page-shell {
