@@ -2,48 +2,48 @@ import Link from "next/link";
 
 const snackPreviews = [
   {
-    title: "Password Hygiene",
+    title: "Password Managers Matter",
     label: "Security Basics",
-    text: "A short primer on stronger passwords, managers, and safer habits.",
+    text: "A practical look at unique passwords, safer storage, and better daily habits.",
   },
   {
     title: "Phishing Signals",
-    label: "Threat Notes",
-    text: "A compact checklist for spotting suspicious messages before clicking.",
+    label: "Email Security",
+    text: "A compact checklist for spotting suspicious sender details and risky links.",
   },
   {
-    title: "Home Network Checks",
-    label: "Quick Audit",
-    text: "Simple steps for reviewing your router, devices, and updates.",
+    title: "Local Admin Risk",
+    label: "Endpoint Security",
+    text: "A beginner-friendly view of why everyday admin access increases damage.",
   },
 ];
 
 const projectPreviews = [
   {
-    title: "Personal Lab",
-    label: "Coming Soon",
-    text: "A controlled practice environment for learning core security skills.",
+    title: "Essential Eight Uplift",
+    label: "Governance",
+    text: "A staged improvement plan for practical control maturity and risk reduction.",
   },
   {
-    title: "Snack Notes",
-    label: "Prototype",
-    text: "A lightweight system for collecting and organizing cyber learning notes.",
+    title: "WDAC Application Control",
+    label: "Endpoint Security",
+    text: "A controlled deployment approach for allow rules, audit mode, and tuning.",
   },
   {
-    title: "Threat Timeline",
-    label: "Concept",
-    text: "A visual way to track security incidents, patterns, and takeaways.",
+    title: "Microsoft 365 Hardening",
+    label: "Cloud Security",
+    text: "A focused baseline covering identity, mailbox, sharing, and audit controls.",
   },
 ];
 
 const videoPreviews = [
   {
-    title: "Cyber Basics in Minutes",
-    text: "Placeholder for a short explainer video embed.",
+    title: "External Awareness References",
+    text: "Useful public cybersecurity clips are curated while original The Cyber Snacks videos are prepared.",
   },
   {
-    title: "Project Walkthrough",
-    text: "Placeholder for a build or lab walkthrough embed.",
+    title: "Original Videos Coming Soon",
+    text: "The live Videos page is clearly marked as external reference content until original walkthroughs are added.",
   },
 ];
 
@@ -59,7 +59,7 @@ export default function Home() {
             </h1>
             <p className="lead-text">
               A cinematic black-and-gold home for practical security notes,
-              project previews, and video explainers.
+              project examples, and carefully labelled video references.
             </p>
             <div className="gold-divider" />
             <div className="hero-actions">
@@ -84,7 +84,7 @@ export default function Home() {
             </div>
             <div className="hero-panel-line">
               <span>Videos</span>
-              <strong>Visual explainers</strong>
+              <strong>Awareness references</strong>
             </div>
           </div>
         </div>
@@ -100,8 +100,8 @@ export default function Home() {
           </div>
           <div className="section-copy">
             <p>
-              The Cyber Snacks is being built as a clean, practical learning
-              hub for cyber concepts, projects, and walkthroughs.
+              The Cyber Snacks is a clean, practical learning hub for cyber
+              concepts, project examples, and walkthrough-ready guidance.
             </p>
             <p>
               The tone is simple: concise explanations, premium presentation,
@@ -115,7 +115,7 @@ export default function Home() {
         <div className="site-container section-stack">
           <div className="section-heading">
             <p className="eyebrow">Latest Snacks</p>
-            <h2 className="section-title">Bite-sized topics waiting to be written.</h2>
+            <h2 className="section-title">Bite-sized security lessons ready to read.</h2>
           </div>
           <div className="preview-grid">
             {snackPreviews.map((snack) => (
@@ -133,7 +133,7 @@ export default function Home() {
         <div className="site-container section-stack">
           <div className="section-heading">
             <p className="eyebrow">Featured Projects</p>
-            <h2 className="section-title">A polished preview of future builds.</h2>
+            <h2 className="section-title">Practical project examples with real security focus.</h2>
           </div>
           <div className="preview-grid">
             {projectPreviews.map((project) => (
@@ -151,14 +151,16 @@ export default function Home() {
         <div className="site-container section-stack">
           <div className="section-heading">
             <p className="eyebrow">Videos</p>
-            <h2 className="section-title">Responsive video spaces for future episodes.</h2>
+            <h2 className="section-title">
+              External awareness references, with originals to follow.
+            </h2>
           </div>
           <div className="video-preview-grid">
             {videoPreviews.map((video) => (
               <article className="video-preview" key={video.title}>
                 <div className="video-frame video-placeholder">
                   <div>
-                    <p className="preview-label">YouTube Placeholder</p>
+                    <p className="preview-label">Video Reference</p>
                     <h3 className="card-title">{video.title}</h3>
                     <p className="card-text">{video.text}</p>
                   </div>
@@ -173,11 +175,11 @@ export default function Home() {
         <div className="site-container final-cta">
           <p className="eyebrow">Stay Ready</p>
           <h2 className="section-title">
-            The foundation is set for deeper cyber content.
+            Practical cyber learning, ready to explore.
           </h2>
           <p className="lead-text">
-            Next steps can add real articles, project details, and video
-            embeds while preserving this premium visual direction.
+            Explore live Snack articles, credible project examples, and clearly
+            labelled video references from one focused place.
           </p>
           <Link href="/contact" className="button-link">
             Contact
