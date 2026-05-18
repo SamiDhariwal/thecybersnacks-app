@@ -13,23 +13,25 @@ export default function Home() {
   return (
     <main className="home-page">
       <section className="home-hero">
-        <div className="site-container hero-copy">
-          <p className="eyebrow">The Cyber Snacks</p>
-          <h1 className="display-heading">
-            Cybersecurity learning, served in focused bites.
-          </h1>
-          <p className="lead-text">
-            Practical Snacks, certification tracks, and security habits
-            explained clearly.
-          </p>
-          <div className="gold-divider" />
-          <div className="hero-actions">
-            <Link href="/snacks" className="button-link">
-              Browse Snacks
-            </Link>
-            <Link href="/certifications" className="button-link secondary">
-              View Certifications
-            </Link>
+        <div className="site-container">
+          <div className="hero-copy">
+            <p className="eyebrow">The Cyber Snacks</p>
+            <h1 className="display-heading">
+              Cybersecurity learning, served in focused bites.
+            </h1>
+            <p className="lead-text">
+              Practical Snacks, certification tracks, and security habits
+              explained clearly.
+            </p>
+            <div className="gold-divider" />
+            <div className="hero-actions">
+              <Link href="/snacks" className="button-link">
+                Explore Snacks
+              </Link>
+              <Link href="/certifications" className="button-link secondary">
+                View Certifications
+              </Link>
+            </div>
           </div>
         </div>
       </section>

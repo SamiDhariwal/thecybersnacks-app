@@ -11,7 +11,7 @@
   --soft-gold: #a88d55;
   --hover-gold: #d8ba72;
   --gold-rgb: 200, 169, 106;
-  --gold-border: rgba(var(--gold-rgb), 0.18);
+  --gold-border: rgba(var(--gold-rgb), 0.22);
   --gold-separator: rgba(var(--gold-rgb), 0.1);
   --card-shadow:
     0 1.2rem 3.25rem rgba(0, 0, 0, 0.34),
@@ -277,8 +277,25 @@ a {
   }
 
   .page-shell {
+    position: relative;
     min-height: calc(100vh - 6.5rem);
     padding-block: 2.75rem 3.5rem;
+  }
+
+  .page-shell::before {
+    position: absolute;
+    inset: 0 0 auto;
+    height: 9rem;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(var(--gold-rgb), 0.025), transparent 22rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 82%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .page-shell > * {
+    position: relative;
+    z-index: 1;
   }
 
   .site-container {
@@ -370,7 +387,7 @@ a {
   .gold-divider {
     height: 1px;
     width: 3.5rem;
-    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.72), transparent);
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.62), transparent);
   }
 
   .video-frame {
@@ -389,6 +406,16 @@ a {
 
   .snacks-page-stack {
     gap: 1.35rem;
+  }
+
+  .snacks-list-heading,
+  .certification-tracks-section,
+  .track-content-section,
+  .projects-page-stack > .section-heading,
+  .supporting-video-section,
+  .contact-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.035);
+    padding-top: 0.95rem;
   }
 
   .snacks-list-heading .card-text {
@@ -527,9 +554,9 @@ a {
 
   .category-badge {
     width: fit-content;
-    border: 1px solid var(--gold-border);
+    border: 1px solid rgba(var(--gold-rgb), 0.28);
     border-radius: 999px;
-    background: rgba(var(--gold-rgb), 0.055);
+    background: rgba(var(--gold-rgb), 0.06);
     color: var(--primary-gold);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
     font-size: 0.82rem;
@@ -780,7 +807,7 @@ a {
 
   .certifications-page-stack,
   .certification-track-page-stack {
-    gap: 1.25rem;
+    gap: 1.35rem;
   }
 
   .certifications-hero,
@@ -854,7 +881,7 @@ a {
   }
 
   .projects-page-stack {
-    gap: 1.1rem;
+    gap: 1.35rem;
   }
 
   .projects-hero {
@@ -977,7 +1004,7 @@ a {
   }
 
   .videos-page-stack {
-    gap: 1.1rem;
+    gap: 1.35rem;
   }
 
   .videos-hero {
@@ -1003,8 +1030,10 @@ a {
   }
 
   .featured-video {
+    position: relative;
     display: grid;
     gap: 1.15rem;
+    margin-top: 0.95rem;
     border: 1px solid var(--gold-border);
     border-radius: 0.5rem;
     background:
@@ -1199,7 +1228,7 @@ a {
   }
 
   .about-page-stack {
-    gap: 1.1rem;
+    gap: 1.35rem;
   }
 
   .about-hero {
@@ -1226,6 +1255,7 @@ a {
 
   .about-mission,
   .about-philosophy {
+    position: relative;
     display: grid;
     gap: 1rem;
     border: 1px solid var(--border);
@@ -1234,6 +1264,10 @@ a {
       linear-gradient(135deg, rgba(var(--gold-rgb), 0.035), transparent 52%),
       var(--surface-elevated);
     padding: 1.15rem;
+  }
+
+  .about-page-stack > .about-mission {
+    margin-top: 0.95rem;
   }
 
   .about-section-block {
@@ -1266,6 +1300,18 @@ a {
     transform: translateY(-2px);
   }
 
+  .videos-page-stack > .featured-video::before,
+  .about-page-stack > .about-mission::before {
+    position: absolute;
+    top: -0.95rem;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.035);
+    content: "";
+    pointer-events: none;
+  }
+
   .philosophy-list {
     display: grid;
     gap: 0.85rem;
@@ -1284,7 +1330,7 @@ a {
   }
 
   .contact-page-stack {
-    gap: 1.25rem;
+    gap: 1.35rem;
   }
 
   .contact-hero {
@@ -1419,11 +1465,30 @@ a {
   }
 
   .home-hero {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.024);
     background:
-      radial-gradient(circle at 18% 0%, rgba(var(--gold-rgb), 0.05), transparent 24rem),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 72%);
-    padding-block: 3.75rem 2.65rem;
+      radial-gradient(circle at 8% 0%, rgba(var(--gold-rgb), 0.036), transparent 23rem),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.016), transparent 44%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.01), transparent 72%);
+    padding-block: 3.9rem 2.7rem;
+  }
+
+  .home-hero::after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(var(--gold-rgb), 0.1) 18%,
+      rgba(var(--gold-rgb), 0.055) 42%,
+      transparent 78%
+    );
+    box-shadow: 0 0 1rem rgba(var(--gold-rgb), 0.028);
+    content: "";
   }
 
   .hero-grid {
@@ -1433,16 +1498,16 @@ a {
 
   .hero-copy {
     display: grid;
-    gap: 1rem;
-    max-width: 46rem;
+    gap: 1.05rem;
+    max-width: 48rem;
     text-align: left;
   }
 
   .home-hero .display-heading {
-    max-width: 45rem;
-    font-size: clamp(2.75rem, 8vw, 4.35rem);
+    max-width: 47rem;
+    font-size: clamp(2.8rem, 8vw, 4.5rem);
     letter-spacing: 0;
-    line-height: 0.92;
+    line-height: 0.91;
   }
 
   .home-hero .lead-text {
@@ -1453,7 +1518,7 @@ a {
     display: flex;
     flex-wrap: wrap;
     gap: 0.7rem;
-    margin-top: 0.5rem;
+    margin-top: 0.35rem;
   }
 
   .button-link {
@@ -1461,10 +1526,13 @@ a {
     min-height: 2.85rem;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gold-border);
+    border: 1px solid rgba(var(--gold-rgb), 0.2);
     border-radius: 999px;
-    background: rgba(var(--gold-rgb), 0.08);
-    color: var(--primary-gold);
+    background: rgba(16, 16, 17, 0.34);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.025),
+      0 0.75rem 2rem rgba(0, 0, 0, 0.16);
+    color: var(--soft-gold);
     max-width: 100%;
     padding: 0.72rem 1rem;
     text-align: center;
@@ -1472,13 +1540,17 @@ a {
     transition:
       background-color 180ms ease,
       border-color 180ms ease,
+      box-shadow 180ms ease,
       color 180ms ease,
       transform 180ms ease;
   }
 
   .button-link:hover {
-    border-color: rgba(var(--gold-rgb), 0.36);
-    background: rgba(var(--gold-rgb), 0.12);
+    border-color: rgba(var(--gold-rgb), 0.42);
+    background: rgba(var(--gold-rgb), 0.075);
+    box-shadow:
+      0 1rem 2.7rem rgba(0, 0, 0, 0.28),
+      0 0 1.5rem rgba(var(--gold-rgb), 0.08);
     color: var(--hover-gold);
     transform: translateY(-1px);
   }
@@ -1489,14 +1561,14 @@ a {
   }
 
   .button-link.secondary {
-    border-color: var(--border);
-    background: transparent;
+    border-color: rgba(var(--gold-rgb), 0.2);
+    background: rgba(16, 16, 17, 0.34);
     color: var(--soft-gold);
   }
 
   .button-link.secondary:hover {
-    border-color: var(--gold-border);
-    background: rgba(var(--gold-rgb), 0.055);
+    border-color: rgba(var(--gold-rgb), 0.42);
+    background: rgba(var(--gold-rgb), 0.075);
   }
 
   .hero-panel {
