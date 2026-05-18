@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const featuredSnack = {
   category: "Awareness",
   title: "The 5-minute security check before you click",
@@ -13,6 +15,7 @@ const latestSnacks = [
     description:
       "A quick look at sender details, mismatched links, and pressure tactics.",
     readTime: "4 min read",
+    href: "/snacks/phishing-signs-users-ignore",
   },
   {
     category: "Passwords",
@@ -84,16 +87,31 @@ export default function SnacksPage() {
         </div>
 
         <div className="snack-grid">
-          {latestSnacks.map((snack) => (
-            <article className="snack-card" key={snack.title}>
-              <div className="snack-card-header">
-                <p className="category-badge">{snack.category}</p>
-                <p className="read-time">{snack.readTime}</p>
-              </div>
-              <h3 className="card-title">{snack.title}</h3>
-              <p className="card-text">{snack.description}</p>
-            </article>
-          ))}
+          {latestSnacks.map((snack) =>
+            snack.href ? (
+              <Link
+                className="snack-card snack-card-link"
+                href={snack.href}
+                key={snack.title}
+              >
+                <div className="snack-card-header">
+                  <p className="category-badge">{snack.category}</p>
+                  <p className="read-time">{snack.readTime}</p>
+                </div>
+                <h3 className="card-title">{snack.title}</h3>
+                <p className="card-text">{snack.description}</p>
+              </Link>
+            ) : (
+              <article className="snack-card" key={snack.title}>
+                <div className="snack-card-header">
+                  <p className="category-badge">{snack.category}</p>
+                  <p className="read-time">{snack.readTime}</p>
+                </div>
+                <h3 className="card-title">{snack.title}</h3>
+                <p className="card-text">{snack.description}</p>
+              </article>
+            ),
+          )}
         </div>
       </section>
     </main>
