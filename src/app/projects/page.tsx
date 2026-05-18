@@ -1,60 +1,60 @@
 const featuredProject = {
   category: "Microsoft 365 Security",
-  title: "M365 security hardening baseline",
+  title: "Microsoft 365 security hardening baseline",
   description:
-    "A practical hardening project focused on reducing common Microsoft 365 risks with MFA improvements, safer sharing defaults, audit visibility, and admin role review.",
-  tags: ["Microsoft 365", "MFA", "Conditional Access", "Defender"],
-  cta: "Review hardening scope",
+    "A tenant hardening review covering MFA coverage, legacy authentication, admin roles, mailbox forwarding, external sharing, and audit logging.",
+  tags: ["Microsoft 365", "Entra ID", "Defender", "SharePoint"],
+  cta: "Review hardening plan",
 };
 
 const projects = [
   {
-    category: "Automation",
-    title: "PowerShell user access review toolkit",
+    category: "Governance",
+    title: "Essential Eight uplift plan",
     description:
-      "A lightweight script set for exporting users, groups, mailbox permissions, and stale accounts into clear review-ready reports.",
-    tags: ["PowerShell", "Microsoft Graph", "Entra ID"],
-    cta: "View automation idea",
+      "A practical gap review and staged improvement plan for patching, MFA, backups, application control, and admin privilege reduction.",
+    tags: ["Essential Eight", "Patching", "MFA"],
+    cta: "View uplift plan",
   },
   {
     category: "Endpoint Security",
-    title: "WDAC pilot deployment plan",
+    title: "WDAC deployment and application control",
     description:
-      "A staged Windows Defender Application Control rollout model with audit mode, policy testing, exception handling, and deployment notes.",
-    tags: ["WDAC", "Intune", "Windows Security"],
-    cta: "Explore deployment plan",
-  },
-  {
-    category: "Governance",
-    title: "Essential Eight uplift roadmap",
-    description:
-      "A maturity-focused improvement plan covering patching, MFA, backups, application control, and practical prioritisation for smaller teams.",
-    tags: ["Essential Eight", "Risk", "Maturity"],
-    cta: "See uplift approach",
+      "A controlled Windows Defender Application Control pilot using audit mode, policy tuning, allow rules, and staged Intune deployment.",
+    tags: ["WDAC", "Intune", "Application Control"],
+    cta: "Explore WDAC pilot",
   },
   {
     category: "Awareness",
-    title: "Phishing simulation campaign",
+    title: "Phishing simulation and reporting campaign",
     description:
-      "A safe awareness exercise using realistic email scenarios, clear reporting guidance, and follow-up lessons for better user decisions.",
-    tags: ["Phishing", "Training", "Reporting"],
-    cta: "Open campaign outline",
+      "Realistic phishing scenarios paired with safe reporting guidance, quick follow-up lessons, and clear measures for improvement.",
+    tags: ["Phishing", "User Training", "Reporting"],
+    cta: "Open campaign plan",
   },
   {
-    category: "Cloud Security",
-    title: "M365 secure collaboration review",
+    category: "Automation",
+    title: "Intune remediation scripting pack",
     description:
-      "A focused review of external sharing, Teams guest access, mailbox forwarding, and alerting so collaboration stays useful and controlled.",
-    tags: ["SharePoint", "Teams", "Defender"],
-    cta: "Review collaboration controls",
+      "Detection and remediation scripts for common endpoint issues such as missing settings, stale agents, risky local admins, and failed controls.",
+    tags: ["Intune", "PowerShell", "Remediation"],
+    cta: "View script pack",
   },
   {
-    category: "Detection",
-    title: "Suspicious sign-in triage workflow",
+    category: "Email Security",
+    title: "Mailbox forwarding and inbox rule review",
     description:
-      "A simple analyst workflow for checking risky sign-ins, impossible travel, device context, user impact, and next response actions.",
-    tags: ["Entra ID", "Detection", "Incident Response"],
-    cta: "Study triage workflow",
+      "A focused audit for suspicious forwarding, hidden inbox rules, external redirects, and mailbox settings often abused after account compromise.",
+    tags: ["Exchange Online", "Defender", "PowerShell"],
+    cta: "Review mailbox checks",
+  },
+  {
+    category: "Identity Security",
+    title: "Entra ID access review workflow",
+    description:
+      "A repeatable review process for stale accounts, privileged roles, guest users, group ownership, and sign-in risk signals.",
+    tags: ["Entra ID", "Access Reviews", "Graph"],
+    cta: "Study review workflow",
   },
 ];
 
