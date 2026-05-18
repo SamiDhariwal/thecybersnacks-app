@@ -210,6 +210,126 @@ export const snackArticles: SnackArticle[] = [
         "A beginner-friendly guide to MFA prompt risks, fatigue attacks, and safer approval habits.",
     },
   },
+  {
+    slug: "local-admin-risk",
+    category: "Endpoint Security",
+    title: "Why local admin access is risky",
+    cardTitle: "Why local admin access is risky",
+    description:
+      "A simple look at why everyday admin rights can make device problems worse.",
+    readTime: "4 min read",
+    publishedText: "Published May 18, 2026",
+    heroDescription:
+      "Local admin access can feel convenient, but it gives software and attackers more room to make serious changes on a device.",
+    intro: [
+      "Local admin access means a user can make powerful changes on their own computer. That can include installing software, changing settings, disabling controls, or approving actions that affect the whole device.",
+      "For beginners, the key idea is simple: admin rights are useful for maintenance, but risky as an everyday default.",
+    ],
+    sections: [
+      {
+        heading: "1. Malware can inherit the user's power",
+        body: [
+          "If a person is using an admin account and accidentally runs malicious software, that software may get the same high level of access.",
+          "Example: a fake installer downloaded from the web may be able to change system settings, add startup tasks, or weaken protections if it runs with admin rights.",
+        ],
+      },
+      {
+        heading: "2. Mistakes become easier to make",
+        body: [
+          "Admin access removes some of the normal guardrails. A user may be able to uninstall security tools, install untrusted apps, or approve changes they do not fully understand.",
+          "This does not mean users are careless. It means the account has more power than it needs for everyday work like email, browsing, documents, and meetings.",
+        ],
+      },
+      {
+        heading: "3. Temporary elevation is safer than permanent access",
+        body: [
+          "Many teams handle admin tasks with a separate admin account, a help desk process, or a temporary approval tool. The goal is to give admin rights only when there is a real reason.",
+          "This keeps normal work lower risk while still allowing updates, installs, and troubleshooting when needed.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Local admin safety checklist",
+      items: [
+        "Use a standard account for everyday work.",
+        "Keep admin accounts separate from normal sign-in accounts.",
+        "Only approve admin prompts when you know what change is being made.",
+        "Avoid installing software from random links or pop-ups.",
+        "Remove local admin rights when they are no longer needed.",
+        "Ask IT or a trusted support person before changing security settings.",
+      ],
+    },
+    takeaway: {
+      eyebrow: "Final Takeaway",
+      heading: "Use admin access only when the task needs it.",
+      body: "Local admin rights are powerful. Keeping them limited reduces the damage from mistakes, unsafe software, and attacker activity.",
+    },
+    metadata: {
+      title: "Why local admin access is risky | The Cyber Snacks",
+      description:
+        "A beginner-friendly guide to local admin risk, safer device habits, and why least privilege matters.",
+    },
+  },
+  {
+    slug: "suspicious-sender-addresses",
+    category: "Email Security",
+    title: "How to read suspicious sender addresses",
+    cardTitle: "How to read suspicious sender addresses",
+    description:
+      "Practical sender checks for spotting confusing domains and fake message sources.",
+    readTime: "3 min read",
+    publishedText: "Published May 18, 2026",
+    heroDescription:
+      "The sender name in an email can be easy to fake. The real clue is often the full address behind it.",
+    intro: [
+      "A suspicious email may use a familiar display name like Payroll, Microsoft, your bank, or a coworker. That name is only the surface.",
+      "Reading the sender address helps you slow down and check whether the message is coming from a source that makes sense.",
+    ],
+    sections: [
+      {
+        heading: "1. Separate the display name from the real address",
+        body: [
+          "The display name is the friendly label you see first. The real address is the full email address behind it, such as name@example.com.",
+          "Example: an email may show Microsoft Support as the sender, but the address might be microsoft-alerts@gmail.com. That mismatch is a warning sign.",
+        ],
+      },
+      {
+        heading: "2. Read the domain from right to left",
+        body: [
+          "The most important part is the real domain near the end of the address. In security@example.microsoft.com, the domain belongs to microsoft.com. In security@microsoft.example.com, it belongs to example.com.",
+          "Attackers often add trusted words near the front because many people stop reading too early.",
+        ],
+      },
+      {
+        heading: "3. Watch for lookalikes and extra words",
+        body: [
+          "Small spelling changes, extra hyphens, odd endings, and unfamiliar domains can make a fake address look close to a real one.",
+          "Example: support@paypaI.com with a capital I instead of an l, or billing@company-secure-login.com, should make you pause before clicking anything.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Sender address checklist",
+      items: [
+        "Open or expand the sender details before trusting the message.",
+        "Check the full address, not just the display name.",
+        "Look for misspellings, extra words, and unusual domain endings.",
+        "Be careful when trusted brand names appear before the real domain.",
+        "Compare the address with previous legitimate messages when possible.",
+        "Use a trusted website or contact method if the email asks you to act.",
+      ],
+    },
+    takeaway: {
+      eyebrow: "Final Takeaway",
+      heading: "The display name is not proof.",
+      body: "A sender name can look familiar while the real address tells a different story. When the message feels important, check the full address before you trust it.",
+    },
+    metadata: {
+      title: "How to read suspicious sender addresses | The Cyber Snacks",
+      description:
+        "A practical beginner guide to reading sender addresses, spotting fake domains, and checking email source clues.",
+    },
+  },
 ];
 
 export function getSnackArticle(slug: string) {
