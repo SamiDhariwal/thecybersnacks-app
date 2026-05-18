@@ -21,21 +21,6 @@ const contactMethods = [
   },
 ];
 
-const overviewItems = [
-  {
-    label: "Best for",
-    value: "Cyber learning ideas, creator collabs, and project conversations.",
-  },
-  {
-    label: "How to reach me",
-    value: "Pick the channel that matches the context. No forms or gated inboxes.",
-  },
-  {
-    label: "Channels",
-    value: "YouTube, LinkedIn, and GitHub.",
-  },
-];
-
 export default function ContactPage() {
   return (
     <main className="page-shell contact-page-shell">
@@ -51,18 +36,6 @@ export default function ContactPage() {
               use for videos, professional updates, and project work.
             </p>
           </div>
-
-          <aside className="contact-overview-panel" aria-label="Contact overview">
-            <p className="overview-panel-title">Contact Overview</p>
-            <div className="overview-list">
-              {overviewItems.map((item) => (
-                <div className="overview-item" key={item.label}>
-                  <p className="overview-label">{item.label}</p>
-                  <p className="card-text">{item.value}</p>
-                </div>
-              ))}
-            </div>
-          </aside>
         </section>
 
         <section className="contact-section" aria-labelledby="contact-methods-heading">

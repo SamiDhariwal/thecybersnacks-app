@@ -1,22 +1,3 @@
-const brandOverview = [
-  {
-    label: "Core focus",
-    items: ["M365 security", "Automation", "Awareness"],
-  },
-  {
-    label: "Security areas",
-    items: ["Identity", "Endpoint", "Email"],
-  },
-  {
-    label: "Content style",
-    items: ["Practical", "Clear", "Focused"],
-  },
-  {
-    label: "Audience",
-    items: ["Learners", "IT teams", "Builders"],
-  },
-];
-
 const focusAreas = [
   {
     title: "Microsoft 365 security",
@@ -63,24 +44,6 @@ export default function AboutPage() {
             </p>
             <div className="gold-divider" />
           </div>
-
-          <aside className="about-overview-panel" aria-label="Brand overview">
-            <p className="overview-panel-title">Brand overview</p>
-            <div className="overview-list">
-              {brandOverview.map((section) => (
-                <div className="overview-item" key={section.label}>
-                  <p className="overview-label">{section.label}</p>
-                  <div className="overview-tags">
-                    {section.items.map((item) => (
-                      <span className="overview-tag" key={item}>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </aside>
         </div>
 
         <section className="about-mission">

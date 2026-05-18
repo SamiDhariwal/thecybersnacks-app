@@ -9,25 +9,6 @@ const featuredVideo = {
   cta: "Watch on YouTube",
 };
 
-const channelOverview = [
-  {
-    label: "Channel focus",
-    items: ["Cyber basics", "M365 security", "Practical projects"],
-  },
-  {
-    label: "Formats",
-    items: ["Explainers", "Walkthroughs", "Checklists"],
-  },
-  {
-    label: "Security domains",
-    items: ["Identity", "Email", "Endpoint"],
-  },
-  {
-    label: "Best for",
-    items: ["Learners", "Small teams", "IT admins"],
-  },
-];
-
 const videos = [
   {
     category: "Awareness",
@@ -95,24 +76,6 @@ export default function VideosPage() {
             </p>
             <div className="gold-divider" />
           </div>
-
-          <aside className="videos-overview-panel" aria-label="Channel overview">
-            <p className="overview-panel-title">Channel overview</p>
-            <div className="overview-list">
-              {channelOverview.map((section) => (
-                <div className="overview-item" key={section.label}>
-                  <p className="overview-label">{section.label}</p>
-                  <div className="overview-tags">
-                    {section.items.map((item) => (
-                      <span className="overview-tag" key={item}>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </aside>
         </div>
 
         <article className="featured-video">

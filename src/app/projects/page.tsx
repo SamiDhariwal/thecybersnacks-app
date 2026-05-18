@@ -7,25 +7,6 @@ const featuredProject = {
   cta: "Review hardening scope",
 };
 
-const heroOverview = [
-  {
-    label: "Focus areas",
-    items: ["Automation", "Hardening", "Risk uplift"],
-  },
-  {
-    label: "Technologies",
-    items: ["PowerShell", "Intune", "Microsoft 365"],
-  },
-  {
-    label: "Project categories",
-    items: ["Deployment", "Awareness", "Detection"],
-  },
-  {
-    label: "Security domains",
-    items: ["Identity", "Endpoint", "Cloud security"],
-  },
-];
-
 const projects = [
   {
     category: "Automation",
@@ -94,24 +75,6 @@ export default function ProjectsPage() {
             </p>
             <div className="gold-divider" />
           </div>
-
-          <aside className="projects-overview-panel" aria-label="Project overview">
-            <p className="overview-panel-title">Portfolio focus</p>
-            <div className="overview-list">
-              {heroOverview.map((section) => (
-                <div className="overview-item" key={section.label}>
-                  <p className="overview-label">{section.label}</p>
-                  <div className="overview-tags">
-                    {section.items.map((item) => (
-                      <span className="overview-tag" key={item}>
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </aside>
         </div>
 
         <article className="featured-project">

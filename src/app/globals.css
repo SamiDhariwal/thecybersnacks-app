@@ -2,14 +2,17 @@
 
 :root {
   --background: #030303;
-  --background-secondary: #0a0a0a;
-  --surface: #111111;
-  --border: #262626;
-  --primary-gold: #d4af37;
-  --soft-gold: #b68d2a;
-  --hover-gold: #f4d03f;
-  --gold-border: rgba(212, 175, 55, 0.28);
-  --gold-separator: rgba(212, 175, 55, 0.18);
+  --background-secondary: #090909;
+  --surface: #101011;
+  --surface-elevated: #151516;
+  --border: #252528;
+  --border-soft: #1a1a1d;
+  --primary-gold: #c8a96a;
+  --soft-gold: #a88d55;
+  --hover-gold: #d8ba72;
+  --gold-rgb: 200, 169, 106;
+  --gold-border: rgba(var(--gold-rgb), 0.18);
+  --gold-separator: rgba(var(--gold-rgb), 0.1);
   --foreground: #f5f5f5;
   --muted: #a1a1aa;
 }
@@ -18,7 +21,9 @@
   --color-background: var(--background);
   --color-background-secondary: var(--background-secondary);
   --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
   --color-border: var(--border);
+  --color-border-soft: var(--border-soft);
   --color-primary-gold: var(--primary-gold);
   --color-soft-gold: var(--soft-gold);
   --color-hover-gold: var(--hover-gold);
@@ -41,15 +46,15 @@ html {
 body {
   min-height: 100%;
   background:
-    radial-gradient(circle at top left, rgba(212, 175, 55, 0.06), transparent 30rem),
-    linear-gradient(180deg, #030303 0%, #0a0a0a 46%, #030303 100%);
+    radial-gradient(circle at top left, rgba(var(--gold-rgb), 0.025), transparent 30rem),
+    linear-gradient(180deg, #030303 0%, #080808 46%, #030303 100%);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(212, 175, 55, 0.28);
+  background: rgba(var(--gold-rgb), 0.22);
   color: var(--foreground);
 }
 
@@ -75,7 +80,7 @@ a {
   align-items: center;
   border: 1px solid transparent;
   border-radius: 999px;
-  color: var(--soft-gold);
+  color: var(--muted);
   padding: 0.45rem 0.75rem;
   text-decoration: none;
   transition:
@@ -112,7 +117,7 @@ a {
 
 .site-header .nav-link-active {
   border-color: var(--gold-border);
-  background: rgba(212, 175, 55, 0.1);
+  background: rgba(var(--gold-rgb), 0.08);
   color: var(--hover-gold);
 }
 
@@ -143,10 +148,10 @@ a {
   justify-content: center;
   flex-direction: column;
   gap: 0.28rem;
-  border: 1px solid var(--gold-border);
+  border: 1px solid var(--border);
   border-radius: 999px;
-  background: rgba(17, 17, 17, 0.9);
-  color: var(--primary-gold);
+  background: rgba(16, 16, 17, 0.9);
+  color: var(--soft-gold);
   transition:
     background-color 180ms ease,
     border-color 180ms ease,
@@ -154,8 +159,8 @@ a {
 }
 
 .hamburger-button:hover {
-  border-color: var(--primary-gold);
-  background: rgba(212, 175, 55, 0.1);
+  border-color: var(--gold-border);
+  background: rgba(var(--gold-rgb), 0.07);
   color: var(--hover-gold);
 }
 
@@ -176,7 +181,7 @@ a {
   display: none;
   flex-direction: column;
   gap: 0.5rem;
-  border-top: 1px solid var(--gold-separator);
+  border-top: 1px solid var(--border-soft);
   padding-block: 1rem 1.25rem;
 }
 
@@ -211,8 +216,8 @@ a {
     position: sticky;
     top: 0;
     z-index: 50;
-    border-bottom: 1px solid var(--gold-separator);
-    background: rgba(3, 3, 3, 0.94);
+    border-bottom: 1px solid var(--border-soft);
+    background: rgba(3, 3, 3, 0.96);
     backdrop-filter: blur(16px);
   }
 
@@ -241,7 +246,7 @@ a {
   }
 
   .brand-kicker {
-    color: var(--soft-gold);
+    color: var(--muted);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
     font-size: 0.82rem;
     font-weight: 600;
@@ -275,7 +280,7 @@ a {
   }
 
   .eyebrow {
-    color: var(--primary-gold);
+    color: var(--soft-gold);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
     font-size: 0.875rem;
     font-weight: 700;
@@ -302,8 +307,8 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.035), transparent),
-      rgba(17, 17, 17, 0.92);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+      rgba(16, 16, 17, 0.92);
   }
 
   .page-grid {
@@ -315,7 +320,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.025), transparent),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
       var(--surface);
     padding: 1.5rem;
   }
@@ -338,7 +343,7 @@ a {
   .gold-divider {
     height: 1px;
     width: 5rem;
-    background: linear-gradient(90deg, var(--primary-gold), transparent);
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.72), transparent);
   }
 
   .video-frame {
@@ -370,8 +375,8 @@ a {
     border: 1px solid var(--gold-border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 52%),
-      var(--surface);
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.045), transparent 52%),
+      var(--surface-elevated);
     padding: 1.5rem;
   }
 
@@ -379,8 +384,8 @@ a {
     width: fit-content;
     border: 1px solid var(--gold-border);
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.08);
-    color: var(--hover-gold);
+    background: rgba(var(--gold-rgb), 0.055);
+    color: var(--primary-gold);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
     font-size: 0.82rem;
     font-weight: 700;
@@ -401,7 +406,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.04), transparent 44%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
       var(--surface);
     padding: 1.35rem;
     transition:
@@ -412,6 +417,9 @@ a {
 
   .snack-card:hover {
     border-color: var(--gold-border);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.035), transparent 46%),
+      var(--surface-elevated);
     transform: translateY(-2px);
   }
 
@@ -462,7 +470,7 @@ a {
     width: fit-content;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gold-border);
+    border: 1px solid var(--border);
     border-radius: 999px;
     color: var(--soft-gold);
     font-size: 0.9rem;
@@ -477,8 +485,8 @@ a {
   }
 
   .article-back-link:hover {
-    border-color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--gold-border);
+    background: rgba(var(--gold-rgb), 0.055);
     color: var(--hover-gold);
     transform: translateY(-1px);
   }
@@ -506,11 +514,11 @@ a {
   .snack-article-meta {
     display: grid;
     gap: 1rem;
-    border: 1px solid var(--gold-border);
+    border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
-      rgba(17, 17, 17, 0.9);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+      rgba(16, 16, 17, 0.9);
     padding: 1.25rem;
   }
 
@@ -540,7 +548,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.03), transparent 44%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
       var(--surface);
     padding: 1.35rem;
   }
@@ -571,7 +579,7 @@ a {
   .article-checklist {
     display: grid;
     gap: 1rem;
-    border-color: var(--gold-border);
+    border-color: var(--border);
   }
 
   .article-checklist ul {
@@ -592,7 +600,7 @@ a {
     height: 0.42rem;
     width: 0.42rem;
     border-radius: 999px;
-    background: var(--primary-gold);
+    background: var(--soft-gold);
     content: "";
   }
 
@@ -601,8 +609,8 @@ a {
     gap: 0.85rem;
     border-color: var(--gold-border);
     background:
-      linear-gradient(135deg, rgba(212, 175, 55, 0.09), transparent 52%),
-      var(--surface);
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 52%),
+      var(--surface-elevated);
   }
 
   .projects-page-shell {
@@ -617,6 +625,7 @@ a {
     display: grid;
     align-items: stretch;
     gap: 1.25rem;
+    max-width: 50rem;
   }
 
   .projects-hero-copy {
@@ -634,41 +643,6 @@ a {
     line-height: 1;
   }
 
-  .projects-overview-panel {
-    border: 1px solid var(--gold-border);
-    border-radius: 0.5rem;
-    background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
-      rgba(17, 17, 17, 0.9);
-    padding: 1.25rem;
-  }
-
-  .overview-panel-title {
-    color: var(--primary-gold);
-    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 1.35rem;
-    font-weight: 700;
-    line-height: 1;
-  }
-
-  .overview-list {
-    display: grid;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .overview-item {
-    display: grid;
-    gap: 0.6rem;
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-  }
-
-  .overview-item:first-child {
-    border-top: 0;
-    padding-top: 0;
-  }
-
   .overview-label {
     color: var(--soft-gold);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
@@ -677,30 +651,14 @@ a {
     text-transform: uppercase;
   }
 
-  .overview-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-  }
-
-  .overview-tag {
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: rgba(3, 3, 3, 0.34);
-    color: var(--muted);
-    font-size: 0.8rem;
-    line-height: 1;
-    padding: 0.42rem 0.62rem;
-  }
-
   .featured-project {
     display: grid;
     gap: 1.5rem;
     border: 1px solid var(--gold-border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(212, 175, 55, 0.09), transparent 54%),
-      var(--surface);
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 54%),
+      var(--surface-elevated);
     padding: 1.5rem;
   }
 
@@ -721,7 +679,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.035), transparent 42%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%),
       var(--surface);
     padding: 1.35rem;
     transition:
@@ -731,6 +689,9 @@ a {
 
   .project-card:hover {
     border-color: var(--gold-border);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.03), transparent 44%),
+      var(--surface-elevated);
     transform: translateY(-2px);
   }
 
@@ -751,9 +712,10 @@ a {
   }
 
   .project-tag {
-    border: 1px solid var(--border);
+    border: 1px solid var(--gold-border);
     border-radius: 999px;
-    color: var(--muted);
+    background: rgba(var(--gold-rgb), 0.03);
+    color: var(--soft-gold);
     font-size: 0.78rem;
     line-height: 1;
     padding: 0.42rem 0.62rem;
@@ -764,7 +726,7 @@ a {
     width: fit-content;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gold-border);
+    border: 1px solid var(--border);
     border-radius: 999px;
     color: var(--soft-gold);
     font-size: 0.9rem;
@@ -780,8 +742,8 @@ a {
   }
 
   .project-card-link:hover {
-    border-color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--gold-border);
+    background: rgba(var(--gold-rgb), 0.055);
     color: var(--hover-gold);
     transform: translateY(-1px);
   }
@@ -803,6 +765,7 @@ a {
     display: grid;
     align-items: stretch;
     gap: 1.25rem;
+    max-width: 50rem;
   }
 
   .videos-hero-copy {
@@ -820,23 +783,14 @@ a {
     line-height: 1;
   }
 
-  .videos-overview-panel {
-    border: 1px solid var(--gold-border);
-    border-radius: 0.5rem;
-    background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
-      rgba(17, 17, 17, 0.9);
-    padding: 1.25rem;
-  }
-
   .featured-video {
     display: grid;
     gap: 1.5rem;
     border: 1px solid var(--gold-border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(212, 175, 55, 0.09), transparent 54%),
-      var(--surface);
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 54%),
+      var(--surface-elevated);
     padding: 1.25rem;
   }
 
@@ -849,7 +803,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(212, 175, 55, 0.12), transparent 46%),
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.04), transparent 46%),
       var(--background-secondary);
   }
 
@@ -882,7 +836,7 @@ a {
     justify-content: center;
     border: 1px solid var(--gold-border);
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.12);
+    background: rgba(var(--gold-rgb), 0.06);
   }
 
   .video-play-mark::before {
@@ -890,7 +844,7 @@ a {
     height: 0;
     margin-left: 0.18rem;
     border-block: 0.48rem solid transparent;
-    border-left: 0.72rem solid var(--hover-gold);
+    border-left: 0.72rem solid var(--primary-gold);
     content: "";
   }
 
@@ -916,7 +870,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.035), transparent 42%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%),
       var(--surface);
     padding: 1rem;
     transition:
@@ -926,6 +880,9 @@ a {
 
   .video-card:hover {
     border-color: var(--gold-border);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.03), transparent 44%),
+      var(--surface-elevated);
     transform: translateY(-2px);
   }
 
@@ -943,7 +900,7 @@ a {
     width: fit-content;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--gold-border);
+    border: 1px solid var(--border);
     border-radius: 999px;
     color: var(--soft-gold);
     font-size: 0.9rem;
@@ -959,8 +916,8 @@ a {
   }
 
   .video-card-link:hover {
-    border-color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--gold-border);
+    background: rgba(var(--gold-rgb), 0.055);
     color: var(--hover-gold);
     transform: translateY(-1px);
   }
@@ -982,6 +939,7 @@ a {
     display: grid;
     align-items: stretch;
     gap: 1.25rem;
+    max-width: 50rem;
   }
 
   .about-hero-copy {
@@ -999,15 +957,6 @@ a {
     line-height: 1;
   }
 
-  .about-overview-panel {
-    border: 1px solid var(--gold-border);
-    border-radius: 0.5rem;
-    background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
-      rgba(17, 17, 17, 0.9);
-    padding: 1.25rem;
-  }
-
   .about-mission,
   .about-philosophy {
     display: grid;
@@ -1015,8 +964,8 @@ a {
     border: 1px solid var(--gold-border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 52%),
-      var(--surface);
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.045), transparent 52%),
+      var(--surface-elevated);
     padding: 1.5rem;
   }
 
@@ -1034,7 +983,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.035), transparent 42%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%),
       var(--surface);
     padding: 1.35rem;
     transition:
@@ -1044,6 +993,9 @@ a {
 
   .about-focus-card:hover {
     border-color: var(--gold-border);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.03), transparent 44%),
+      var(--surface-elevated);
     transform: translateY(-2px);
   }
 
@@ -1053,7 +1005,7 @@ a {
   }
 
   .philosophy-point {
-    border-left: 2px solid var(--gold-border);
+    border-left: 2px solid var(--border);
     color: var(--muted);
     font-size: 1rem;
     line-height: 1.7;
@@ -1072,9 +1024,9 @@ a {
     display: grid;
     align-items: stretch;
     gap: 1.75rem;
+    max-width: 50rem;
   }
 
-  .contact-hero > *,
   .contact-method-card {
     min-width: 0;
   }
@@ -1093,20 +1045,6 @@ a {
     font-size: 2.65rem;
     font-weight: 700;
     line-height: 1;
-  }
-
-  .contact-overview-panel {
-    border: 1px solid var(--gold-border);
-    border-radius: 0.5rem;
-    background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
-      rgba(17, 17, 17, 0.9);
-    padding: 1.35rem;
-  }
-
-  .contact-overview-panel .card-text {
-    margin-top: 0;
-    overflow-wrap: break-word;
   }
 
   .contact-section {
@@ -1133,7 +1071,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.026), transparent 42%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%),
       var(--surface);
     color: inherit;
     min-height: 13.5rem;
@@ -1146,6 +1084,9 @@ a {
 
   .contact-method-card:hover {
     border-color: var(--gold-border);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.03), transparent 44%),
+      var(--surface-elevated);
     transform: translateY(-2px);
   }
 
@@ -1155,8 +1096,8 @@ a {
   }
 
   .contact-method-card:hover .contact-card-action {
-    border-color: var(--primary-gold);
-    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--gold-border);
+    background: rgba(var(--gold-rgb), 0.055);
     color: var(--hover-gold);
   }
 
@@ -1238,10 +1179,10 @@ a {
     min-height: 2.85rem;
     align-items: center;
     justify-content: center;
-    border: 1px solid var(--primary-gold);
+    border: 1px solid var(--gold-border);
     border-radius: 999px;
-    background: rgba(212, 175, 55, 0.14);
-    color: var(--hover-gold);
+    background: rgba(var(--gold-rgb), 0.08);
+    color: var(--primary-gold);
     padding: 0.8rem 1.15rem;
     text-decoration: none;
     transition:
@@ -1252,8 +1193,9 @@ a {
   }
 
   .button-link:hover {
-    border-color: var(--hover-gold);
-    background: rgba(244, 208, 63, 0.16);
+    border-color: rgba(var(--gold-rgb), 0.36);
+    background: rgba(var(--gold-rgb), 0.12);
+    color: var(--hover-gold);
     transform: translateY(-1px);
   }
 
@@ -1263,17 +1205,22 @@ a {
   }
 
   .button-link.secondary {
-    border-color: var(--gold-border);
+    border-color: var(--border);
     background: transparent;
     color: var(--soft-gold);
   }
 
+  .button-link.secondary:hover {
+    border-color: var(--gold-border);
+    background: rgba(var(--gold-rgb), 0.055);
+  }
+
   .hero-panel {
-    border: 1px solid var(--gold-border);
+    border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
-      rgba(17, 17, 17, 0.86);
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+      rgba(16, 16, 17, 0.86);
     padding: 1.25rem;
   }
 
@@ -1310,7 +1257,7 @@ a {
 
   .home-section.separated {
     border-block: 1px solid var(--border);
-    background: rgba(10, 10, 10, 0.54);
+    background: rgba(9, 9, 9, 0.64);
   }
 
   .section-heading {
@@ -1350,7 +1297,7 @@ a {
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.03), transparent),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
       var(--surface);
     padding: 1.5rem;
     transition:
@@ -1360,6 +1307,9 @@ a {
 
   .preview-card:hover {
     border-color: var(--gold-border);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.03), transparent),
+      var(--surface-elevated);
     transform: translateY(-2px);
   }
 
@@ -1376,6 +1326,9 @@ a {
 
   .video-placeholder:hover {
     border-color: var(--gold-border);
+    background:
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.035), transparent 46%),
+      var(--background-secondary);
     transform: translateY(-2px);
   }
 
@@ -1386,15 +1339,15 @@ a {
     border: 1px solid var(--gold-border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(212, 175, 55, 0.08), transparent 48%),
-      var(--surface);
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 48%),
+      var(--surface-elevated);
     padding: 2rem;
   }
 
   .site-footer {
-    border-top: 1px solid var(--gold-separator);
+    border-top: 1px solid var(--border-soft);
     background:
-      linear-gradient(180deg, rgba(212, 175, 55, 0.035), transparent),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent),
       var(--background);
     padding-block: 2.5rem;
   }
@@ -1433,7 +1386,7 @@ a {
   .footer-social-link {
     border: 1px solid var(--border);
     border-radius: 999px;
-    color: var(--soft-gold);
+    color: var(--muted);
     padding: 0.55rem 0.8rem;
     text-decoration: none;
     transition:
@@ -1445,7 +1398,7 @@ a {
 
   .footer-social-link:hover {
     border-color: var(--gold-border);
-    background: rgba(212, 175, 55, 0.08);
+    background: rgba(var(--gold-rgb), 0.055);
     color: var(--hover-gold);
     transform: translateY(-1px);
   }
@@ -1549,22 +1502,6 @@ a {
 
   .contact-hero-heading {
     font-size: 3.25rem;
-  }
-
-  .projects-overview-panel {
-    padding: 1.5rem;
-  }
-
-  .videos-overview-panel {
-    padding: 1.5rem;
-  }
-
-  .about-overview-panel {
-    padding: 1.5rem;
-  }
-
-  .contact-overview-panel {
-    padding: 1.5rem;
   }
 
   .project-grid {
@@ -1685,26 +1622,6 @@ a {
     grid-template-columns: minmax(20rem, 0.95fr) minmax(0, 1fr);
     align-items: center;
     padding: 2rem;
-  }
-
-  .projects-hero {
-    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
-    gap: 2rem;
-  }
-
-  .videos-hero {
-    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
-    gap: 2rem;
-  }
-
-  .about-hero {
-    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
-    gap: 2rem;
-  }
-
-  .contact-hero {
-    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
-    gap: 3.5rem;
   }
 
   .about-mission,
