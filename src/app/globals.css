@@ -879,6 +879,153 @@ a {
     padding-left: 1rem;
   }
 
+  .contact-page-shell {
+    padding-block: 3.75rem 5rem;
+  }
+
+  .contact-page-stack {
+    gap: 2.75rem;
+  }
+
+  .contact-hero {
+    display: grid;
+    align-items: stretch;
+    gap: 1.75rem;
+  }
+
+  .contact-hero > *,
+  .contact-method-card {
+    min-width: 0;
+  }
+
+  .contact-hero-copy {
+    display: grid;
+    align-content: start;
+    gap: 1.1rem;
+    max-width: 40rem;
+  }
+
+  .contact-hero-heading {
+    max-width: 42rem;
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 2.65rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .contact-overview-panel {
+    border: 1px solid var(--gold-border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(212, 175, 55, 0.06), transparent),
+      rgba(17, 17, 17, 0.9);
+    padding: 1.35rem;
+  }
+
+  .contact-overview-panel .card-text {
+    margin-top: 0;
+    overflow-wrap: break-word;
+  }
+
+  .contact-section {
+    display: grid;
+    gap: 1.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .contact-section-heading {
+    display: grid;
+    gap: 0.8rem;
+    max-width: 36rem;
+  }
+
+  .contact-method-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .contact-method-card {
+    display: grid;
+    align-content: start;
+    gap: 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(212, 175, 55, 0.026), transparent 42%),
+      var(--surface);
+    color: inherit;
+    min-height: 13.5rem;
+    padding: 1.45rem;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .contact-method-card:hover {
+    border-color: var(--gold-border);
+    transform: translateY(-2px);
+  }
+
+  .contact-method-card:focus-visible {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 0.35rem;
+  }
+
+  .contact-method-card:hover .contact-card-action {
+    border-color: var(--primary-gold);
+    background: rgba(212, 175, 55, 0.08);
+    color: var(--hover-gold);
+  }
+
+  .contact-method-top {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.85rem;
+  }
+
+  .contact-method-type {
+    color: var(--soft-gold);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 0.86rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .contact-card-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--soft-gold);
+    font-size: 0.8rem;
+    line-height: 1;
+    max-width: 100%;
+    padding: 0.42rem 0.62rem;
+    white-space: nowrap;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease;
+  }
+
+  .contact-method-handle {
+    margin-top: 0.45rem;
+    color: var(--soft-gold);
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .contact-method-card .card-text {
+    margin-top: 0;
+    overflow-wrap: break-word;
+  }
+
   .home-page {
     overflow: hidden;
   }
@@ -1190,6 +1337,10 @@ a {
     padding-block: 4.5rem 6rem;
   }
 
+  .contact-page-shell {
+    padding-block: 4.5rem 6rem;
+  }
+
   .project-hero-heading {
     font-size: 3.25rem;
   }
@@ -1199,6 +1350,10 @@ a {
   }
 
   .about-hero-heading {
+    font-size: 3.25rem;
+  }
+
+  .contact-hero-heading {
     font-size: 3.25rem;
   }
 
@@ -1214,6 +1369,10 @@ a {
     padding: 1.5rem;
   }
 
+  .contact-overview-panel {
+    padding: 1.5rem;
+  }
+
   .project-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1223,6 +1382,10 @@ a {
   }
 
   .about-focus-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-method-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1242,6 +1405,10 @@ a {
   }
 
   .about-page-shell {
+    padding-block: 5.25rem 7rem;
+  }
+
+  .contact-page-shell {
     padding-block: 5.25rem 7rem;
   }
 
@@ -1306,6 +1473,11 @@ a {
     gap: 2rem;
   }
 
+  .contact-hero {
+    grid-template-columns: minmax(0, 1.08fr) minmax(18rem, 0.92fr);
+    gap: 3.5rem;
+  }
+
   .about-mission,
   .about-philosophy {
     grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
@@ -1322,6 +1494,19 @@ a {
 
   .about-hero-heading {
     font-size: 3.65rem;
+  }
+
+  .contact-hero-heading {
+    font-size: 3.65rem;
+  }
+
+  .contact-page-stack {
+    gap: 3.75rem;
+  }
+
+  .contact-method-grid {
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .footer-grid {
@@ -1351,6 +1536,10 @@ a {
     padding-block: 5.5rem 7.5rem;
   }
 
+  .contact-page-shell {
+    padding-block: 5.5rem 7.5rem;
+  }
+
   .site-container {
     width: min(calc(100% - 4rem), 80rem);
   }
@@ -1375,6 +1564,10 @@ a {
     padding: 1.5rem;
   }
 
+  .contact-method-card {
+    padding: 1.65rem;
+  }
+
   .project-hero-heading {
     font-size: 3.9rem;
   }
@@ -1384,6 +1577,10 @@ a {
   }
 
   .about-hero-heading {
+    font-size: 3.9rem;
+  }
+
+  .contact-hero-heading {
     font-size: 3.9rem;
   }
 }
@@ -1405,6 +1602,8 @@ a {
   .video-card,
   .video-card-link,
   .about-focus-card,
+  .contact-method-card,
+  .contact-card-action,
   .footer-social-link {
     transition: none;
   }
@@ -1419,6 +1618,7 @@ a {
   .video-card:hover,
   .video-card-link:hover,
   .about-focus-card:hover,
+  .contact-method-card:hover,
   .footer-social-link:hover {
     transform: none;
   }

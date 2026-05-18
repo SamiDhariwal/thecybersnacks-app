@@ -1,17 +1,4 @@
-const socialLinks = [
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@TheCyberSnacks",
-  },
-  {
-    label: "GitHub",
-    href: "https://github.com/SamiDhariwal",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/sami-ullah-dhariwal/",
-  },
-];
+import { socialLinks } from "@/lib/socialLinks";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
