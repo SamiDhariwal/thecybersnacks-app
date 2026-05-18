@@ -17,7 +17,21 @@ const rajdhani = Rajdhani({
 
 export const metadata: Metadata = {
   title: "The Cyber Snacks",
-  description: "A premium black-and-gold home for cyber snacks, projects, and videos.",
+  applicationName: "The Cyber Snacks",
+  description:
+    "Practical cybersecurity learning through short articles, projects, and video references.",
+  icons: {
+    icon: [
+      {
+        url: "/icon.svg",
+        type: "image/svg+xml",
+      },
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({

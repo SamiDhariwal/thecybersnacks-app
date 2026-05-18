@@ -1,62 +1,41 @@
-const youtubeChannelUrl = "https://www.youtube.com/@TheCyberSnacks";
-
 const featuredVideo = {
-  category: "Microsoft 365 Security",
-  title: "M365 hardening checklist for practical teams",
-  duration: "12 min",
+  category: "External Reference",
+  title: "Temporary awareness reference: phishing basics",
+  source: "CISA Secure Our World",
+  embedUrl: "https://www.youtube.com/embed/sg0kQYvTlnc",
+  watchUrl: "https://www.youtube.com/watch?v=sg0kQYvTlnc",
   description:
-    "A focused walkthrough of the first controls to review in Microsoft 365, from MFA coverage to sharing settings and admin roles.",
-  cta: "Watch on YouTube",
+    "This embedded CISA public awareness video is included as a temporary reference while original The Cyber Snacks videos are prepared.",
+  cta: "Open CISA video",
 };
 
 const videos = [
   {
-    category: "Awareness",
-    title: "How to spot a polished phishing email",
-    duration: "7 min",
+    category: "Passwords",
+    title: "How to Make Strong Passwords",
+    source: "CISA Secure Our World",
+    url: "https://www.youtube.com/watch?v=XXrbut5xRbE",
     description:
-      "A quick breakdown of sender checks, link previews, urgency cues, and the small details attackers hope you miss.",
-    cta: "View episode",
+      "A quick companion video on creating stronger passwords and avoiding easy-to-guess patterns.",
+    cta: "Watch video",
   },
   {
-    category: "Automation",
-    title: "PowerShell access review starter workflow",
-    duration: "10 min",
+    category: "MFA",
+    title: "How to Turn on MFA",
+    source: "CISA Secure Our World",
+    url: "https://www.youtube.com/watch?v=QWwaidg3AtY",
     description:
-      "A simple media walkthrough for turning user and group exports into review-ready security notes.",
-    cta: "View workflow",
+      "A practical reminder that MFA adds an extra check when someone tries to access an account.",
+    cta: "Watch video",
   },
   {
-    category: "Endpoint Security",
-    title: "WDAC explained without the noise",
-    duration: "9 min",
+    category: "Device Security",
+    title: "How to Update Software",
+    source: "CISA Secure Our World",
+    url: "https://www.youtube.com/watch?v=zCcX6aSXcLI",
     description:
-      "A plain-English look at application control, audit mode, rollout planning, and why careful pilots matter.",
-    cta: "Watch explainer",
-  },
-  {
-    category: "Governance",
-    title: "Essential Eight quick wins for small teams",
-    duration: "8 min",
-    description:
-      "A practical overview of the controls that can reduce risk quickly before deeper maturity work begins.",
-    cta: "Open checklist",
-  },
-  {
-    category: "Email Security",
-    title: "Mailbox forwarding rules worth checking",
-    duration: "6 min",
-    description:
-      "A focused lesson on suspicious forwarding, inbox rules, external redirects, and why mailbox reviews matter.",
-    cta: "View lesson",
-  },
-  {
-    category: "Detection",
-    title: "Suspicious sign-in triage in Microsoft Entra",
-    duration: "11 min",
-    description:
-      "A calm triage flow for checking sign-in risk, device context, location clues, and next response steps.",
-    cta: "Watch triage",
+      "A simple explanation of why updates matter for fixing known security weaknesses.",
+    cta: "Watch video",
   },
 ];
 
@@ -71,28 +50,35 @@ export default function VideosPage() {
               Cybersecurity media for sharper decisions.
             </h1>
             <p className="lead-text">
-              Structured video lessons, walkthroughs, and checklists designed
-              to make practical security work easier to understand.
+              Original The Cyber Snacks videos will be added soon. For now,
+              this page highlights a few useful public awareness references.
             </p>
             <div className="gold-divider" />
           </div>
         </div>
 
         <article className="featured-video">
-          <div className="featured-video-preview" aria-hidden="true">
-            <span className="video-play-mark" />
+          <div className="featured-video-preview">
+            <iframe
+              className="featured-video-embed"
+              src={featuredVideo.embedUrl}
+              title={featuredVideo.title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
           </div>
 
           <div className="featured-video-copy">
             <div className="video-meta-row">
               <p className="category-badge">{featuredVideo.category}</p>
-              <p className="video-duration">{featuredVideo.duration}</p>
+              <p className="video-duration">{featuredVideo.source}</p>
             </div>
             <h2 className="section-title">{featuredVideo.title}</h2>
             <p className="card-text">{featuredVideo.description}</p>
             <a
               className="button-link video-cta"
-              href={youtubeChannelUrl}
+              href={featuredVideo.watchUrl}
               target="_blank"
               rel="noreferrer"
             >
@@ -102,9 +88,9 @@ export default function VideosPage() {
         </article>
 
         <div className="section-heading">
-          <p className="eyebrow">Latest Videos</p>
+          <p className="eyebrow">Supporting Videos</p>
           <h2 className="section-title">
-            Premium cyber lessons ready for the channel.
+            Short awareness clips worth keeping close.
           </h2>
         </div>
 
@@ -117,13 +103,13 @@ export default function VideosPage() {
               <div className="video-card-body">
                 <div className="video-meta-row">
                   <p className="category-badge">{video.category}</p>
-                  <p className="video-duration">{video.duration}</p>
+                  <p className="video-duration">{video.source}</p>
                 </div>
                 <h3 className="card-title">{video.title}</h3>
                 <p className="card-text">{video.description}</p>
                 <a
                   className="video-card-link"
-                  href={youtubeChannelUrl}
+                  href={video.url}
                   target="_blank"
                   rel="noreferrer"
                 >
