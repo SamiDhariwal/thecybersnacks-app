@@ -1,25 +1,14 @@
+import type { CertificationTrackSlug } from "@/lib/certificationTracks";
+
 export type SnackArticleSection = {
   heading: string;
   body: string[];
 };
 
-export type SnackTrackSlug = "sscp" | "cism" | "cissp";
-
-export type SnackLearningTrack = {
-  slug: SnackTrackSlug;
-  name: string;
-  certification: string;
-  description: string;
-  metadata: {
-    title: string;
-    description: string;
-  };
-};
-
 export type SnackArticle = {
   slug: string;
   category: string;
-  trackSlugs: SnackTrackSlug[];
+  certificationTrackSlugs: CertificationTrackSlug[];
   title: string;
   cardTitle: string;
   description: string;
@@ -43,50 +32,11 @@ export type SnackArticle = {
   };
 };
 
-export const snackLearningTracks: SnackLearningTrack[] = [
-  {
-    slug: "sscp",
-    name: "SSCP",
-    certification: "Systems Security Certified Practitioner",
-    description:
-      "Operational security foundations for access control, endpoint habits, and practical defensive judgement.",
-    metadata: {
-      title: "SSCP Learning Track | The Cyber Snacks",
-      description:
-        "A focused SSCP study track with practical Cyber Snacks on access control, endpoint security, and defensive habits.",
-    },
-  },
-  {
-    slug: "cism",
-    name: "CISM",
-    certification: "Certified Information Security Manager",
-    description:
-      "Governance, risk, and management-focused Snacks for translating security decisions into business context.",
-    metadata: {
-      title: "CISM Learning Track | The Cyber Snacks",
-      description:
-        "A static CISM learning track for governance, risk, and security management Cyber Snacks.",
-    },
-  },
-  {
-    slug: "cissp",
-    name: "CISSP",
-    certification: "Certified Information Systems Security Professional",
-    description:
-      "Broad security principles for identity, architecture, and resilient decision-making across domains.",
-    metadata: {
-      title: "CISSP Learning Track | The Cyber Snacks",
-      description:
-        "A focused CISSP study track with Cyber Snacks on security principles, identity, architecture, and risk-aware decisions.",
-    },
-  },
-];
-
 export const snackArticles: SnackArticle[] = [
   {
     slug: "phishing-signs-users-ignore",
     category: "Email Security",
-    trackSlugs: ["sscp"],
+    certificationTrackSlugs: ["sscp"],
     title: "3 phishing signs most users ignore",
     cardTitle: "Spotting a polished phishing email",
     description:
@@ -147,7 +97,7 @@ export const snackArticles: SnackArticle[] = [
   {
     slug: "password-managers-matter",
     category: "Passwords",
-    trackSlugs: ["sscp"],
+    certificationTrackSlugs: ["sscp"],
     title: "Why password managers matter",
     cardTitle: "Why password managers matter",
     description:
@@ -208,7 +158,7 @@ export const snackArticles: SnackArticle[] = [
   {
     slug: "mfa-prompts-can-be-dangerous",
     category: "Microsoft 365",
-    trackSlugs: ["cissp"],
+    certificationTrackSlugs: ["cissp"],
     title: "Why MFA prompts can still be dangerous",
     cardTitle: "A beginner view of MFA prompts",
     description:
@@ -269,7 +219,7 @@ export const snackArticles: SnackArticle[] = [
   {
     slug: "local-admin-risk",
     category: "Endpoint Security",
-    trackSlugs: ["sscp"],
+    certificationTrackSlugs: ["sscp"],
     title: "Why local admin access is risky",
     cardTitle: "Why local admin access is risky",
     description:
@@ -330,7 +280,7 @@ export const snackArticles: SnackArticle[] = [
   {
     slug: "suspicious-sender-addresses",
     category: "Email Security",
-    trackSlugs: ["sscp"],
+    certificationTrackSlugs: ["sscp"],
     title: "How to read suspicious sender addresses",
     cardTitle: "How to read suspicious sender addresses",
     description:
@@ -392,22 +342,4 @@ export const snackArticles: SnackArticle[] = [
 
 export function getSnackArticle(slug: string) {
   return snackArticles.find((article) => article.slug === slug);
-}
-
-export function getSnackLearningTrack(slug: string) {
-  return snackLearningTracks.find((track) => track.slug === slug);
-}
-
-export function getRequiredSnackLearningTrack(slug: SnackTrackSlug) {
-  const track = getSnackLearningTrack(slug);
-
-  if (!track) {
-    throw new Error(`Unknown Snack learning track: ${slug}`);
-  }
-
-  return track;
-}
-
-export function getSnackArticlesForTrack(slug: SnackTrackSlug) {
-  return snackArticles.filter((article) => article.trackSlugs.includes(slug));
 }

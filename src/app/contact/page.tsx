@@ -4,19 +4,19 @@ const contactMethods = [
   {
     ...contactLinks.youtube,
     type: "Videos",
-    description: "Watch episodes, comment on topics, and follow new cyber snacks.",
+    description: "Watch videos and follow new cyber content.",
     action: "Open channel",
   },
   {
     ...contactLinks.linkedin,
     type: "Network",
-    description: "Reach out for collaborations, speaking, and professional messages.",
+    description: "Connect for professional updates and messages.",
     action: "Connect",
   },
   {
     ...contactLinks.github,
     type: "Code",
-    description: "Browse projects, experiments, and security learning notes.",
+    description: "Browse projects and security learning notes.",
     action: "View work",
   },
 ];
@@ -29,22 +29,19 @@ export default function ContactPage() {
           <div className="contact-hero-copy">
             <p className="eyebrow">Contact</p>
             <h1 className="contact-hero-heading" id="contact-heading">
-              Reach me where the cyber work happens.
+              Three ways to connect.
             </h1>
             <p className="lead-text">
-              The best way to connect is through the public channels I already
-              use for videos, professional updates, and project work.
+              Use the public channels below for video, professional, or project
+              updates.
             </p>
             <div className="gold-divider" />
           </div>
         </section>
 
-        <section className="contact-section" aria-labelledby="contact-methods-heading">
+        <section className="contact-section" aria-label="Contact methods">
           <div className="contact-section-heading">
             <p className="eyebrow">Where to Reach Me</p>
-            <h2 className="section-title" id="contact-methods-heading">
-              Three simple ways to connect.
-            </h2>
           </div>
 
           <div className="contact-method-grid">

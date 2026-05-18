@@ -1,60 +1,27 @@
-const featuredProject = {
-  category: "Microsoft 365 Security",
-  title: "Microsoft 365 security hardening baseline",
-  description:
-    "A tenant hardening review covering MFA coverage, legacy authentication, admin roles, mailbox forwarding, external sharing, and audit logging.",
-  tags: ["Microsoft 365", "Entra ID", "Defender", "SharePoint"],
-  cta: "Review hardening plan",
-};
-
 const projects = [
   {
-    category: "Governance",
-    title: "Essential Eight uplift plan",
+    category: "Microsoft 365 Security",
+    title: "Microsoft 365 hardening baseline",
     description:
-      "A practical gap review and staged improvement plan for patching, MFA, backups, application control, and admin privilege reduction.",
-    tags: ["Essential Eight", "Patching", "MFA"],
-    cta: "View uplift plan",
+      "A practical baseline for MFA coverage, admin roles, mailbox safety, external sharing, and audit logging.",
+    status: "In Progress",
+    tags: ["Microsoft 365", "Entra ID", "Defender"],
   },
   {
     category: "Endpoint Security",
-    title: "WDAC deployment and application control",
+    title: "Local admin risk reduction",
     description:
-      "A controlled Windows Defender Application Control pilot using audit mode, policy tuning, allow rules, and staged Intune deployment.",
-    tags: ["WDAC", "Intune", "Application Control"],
-    cta: "Explore WDAC pilot",
-  },
-  {
-    category: "Awareness",
-    title: "Phishing simulation and reporting campaign",
-    description:
-      "Realistic phishing scenarios paired with safe reporting guidance, quick follow-up lessons, and clear measures for improvement.",
-    tags: ["Phishing", "User Training", "Reporting"],
-    cta: "Open campaign plan",
-  },
-  {
-    category: "Automation",
-    title: "Intune remediation scripting pack",
-    description:
-      "Detection and remediation scripts for common endpoint issues such as missing settings, stale agents, risky local admins, and failed controls.",
-    tags: ["Intune", "PowerShell", "Remediation"],
-    cta: "View script pack",
+      "A focused endpoint review for reducing everyday admin access and tightening common device risk.",
+    status: "Drafting",
+    tags: ["Least Privilege", "Endpoint", "Intune"],
   },
   {
     category: "Email Security",
-    title: "Mailbox forwarding and inbox rule review",
+    title: "Suspicious mailbox rule review",
     description:
-      "A focused audit for suspicious forwarding, hidden inbox rules, external redirects, and mailbox settings often abused after account compromise.",
-    tags: ["Exchange Online", "Defender", "PowerShell"],
-    cta: "Review mailbox checks",
-  },
-  {
-    category: "Identity Security",
-    title: "Entra ID access review workflow",
-    description:
-      "A repeatable review process for stale accounts, privileged roles, guest users, group ownership, and sign-in risk signals.",
-    tags: ["Entra ID", "Access Reviews", "Graph"],
-    cta: "Study review workflow",
+      "A simple review path for risky forwarding, hidden inbox rules, and mailbox settings often abused after account compromise.",
+    status: "Planned",
+    tags: ["Exchange Online", "Mailbox Rules", "Review"],
   },
 ];
 
@@ -66,38 +33,18 @@ export default function ProjectsPage() {
           <div className="projects-hero-copy">
             <p className="eyebrow">Projects</p>
             <h1 className="project-hero-heading">
-              Cybersecurity projects with real outcomes.
+              Security case studies in progress.
             </h1>
             <p className="lead-text">
-              A professional snapshot of security projects, automation ideas,
-              and uplift plans shaped for real teams and everyday risk
-              reduction.
+              A compact view of practical write-ups currently being shaped.
             </p>
             <div className="gold-divider" />
           </div>
         </div>
 
-        <article className="featured-project">
-          <div className="featured-project-copy">
-            <p className="category-badge">{featuredProject.category}</p>
-            <h2 className="section-title">{featuredProject.title}</h2>
-            <p className="card-text">{featuredProject.description}</p>
-            <div className="project-tags">
-              {featuredProject.tags.map((tag) => (
-                <span className="project-tag" key={tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-          <a className="button-link project-cta" href="/contact">
-            {featuredProject.cta}
-          </a>
-        </article>
-
         <div className="section-heading">
-          <p className="eyebrow">Portfolio Preview</p>
-          <h2 className="section-title">Security projects with useful outcomes.</h2>
+          <p className="eyebrow">Case Studies</p>
+          <h2 className="section-title">No fake links. Just status.</h2>
         </div>
 
         <div className="project-grid">
@@ -115,9 +62,7 @@ export default function ProjectsPage() {
                   </span>
                 ))}
               </div>
-              <a className="project-card-link" href="/contact">
-                {project.cta}
-              </a>
+              <p className="project-card-status">{project.status}</p>
             </article>
           ))}
         </div>

@@ -13,6 +13,13 @@
   --gold-rgb: 200, 169, 106;
   --gold-border: rgba(var(--gold-rgb), 0.18);
   --gold-separator: rgba(var(--gold-rgb), 0.1);
+  --card-shadow:
+    0 1.2rem 3.25rem rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  --card-shadow-hover:
+    0 1.7rem 4.5rem rgba(0, 0, 0, 0.46),
+    0 0 2.35rem rgba(var(--gold-rgb), 0.075),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
   --foreground: #f5f5f5;
   --muted: #a1a1aa;
 }
@@ -271,7 +278,7 @@ a {
 
   .page-shell {
     min-height: calc(100vh - 6.5rem);
-    padding-block: 3.4rem 4rem;
+    padding-block: 2.75rem 3.5rem;
   }
 
   .site-container {
@@ -281,7 +288,7 @@ a {
 
   .section-stack {
     display: grid;
-    gap: 1.35rem;
+    gap: 1.1rem;
   }
 
   .eyebrow {
@@ -294,18 +301,18 @@ a {
   }
 
   .display-heading {
-    max-width: 48rem;
+    max-width: 42rem;
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.45rem;
+    font-size: 2.25rem;
     font-weight: 700;
     line-height: 1;
   }
 
   .lead-text {
-    max-width: 40rem;
+    max-width: 34rem;
     color: var(--muted);
-    font-size: 0.98rem;
-    line-height: 1.65;
+    font-size: 0.96rem;
+    line-height: 1.58;
   }
 
   .foundation-panel {
@@ -348,21 +355,21 @@ a {
   .card-title {
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 1.32rem;
+    font-size: 1.24rem;
     font-weight: 700;
     line-height: 1.1;
   }
 
   .card-text {
-    margin-top: 0.75rem;
+    margin-top: 0.65rem;
     color: var(--muted);
-    font-size: 0.92rem;
-    line-height: 1.65;
+    font-size: 0.89rem;
+    line-height: 1.58;
   }
 
   .gold-divider {
     height: 1px;
-    width: 5rem;
+    width: 3.5rem;
     background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.72), transparent);
   }
 
@@ -376,12 +383,12 @@ a {
 
   .snacks-hero {
     display: grid;
-    gap: 1.15rem;
-    max-width: 50rem;
+    gap: 0.85rem;
+    max-width: 42rem;
   }
 
   .snacks-page-stack {
-    gap: 1.8rem;
+    gap: 1.35rem;
   }
 
   .snacks-list-heading .card-text {
@@ -389,21 +396,22 @@ a {
     max-width: 38rem;
   }
 
-  .learning-tracks-section {
-    display: grid;
-    gap: 1.1rem;
-    margin-top: 0.2rem;
-  }
-
-  .track-grid {
+  .certification-tracks-section {
     display: grid;
     gap: 0.95rem;
   }
 
+  .track-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
   .track-card {
+    position: relative;
     display: grid;
     align-content: start;
     gap: 1rem;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
@@ -416,6 +424,16 @@ a {
       background-color 180ms ease,
       border-color 180ms ease,
       transform 180ms ease;
+  }
+
+  .track-card::before {
+    position: absolute;
+    top: 0;
+    left: 1.15rem;
+    height: 2px;
+    width: 3rem;
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.58), transparent);
+    content: "";
   }
 
   .track-card:hover {
@@ -460,7 +478,7 @@ a {
   .track-card-title {
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.15rem;
+    font-size: 1.95rem;
     font-weight: 700;
     line-height: 0.95;
   }
@@ -488,7 +506,7 @@ a {
     line-height: 1;
     margin-top: 0.25rem;
     max-width: 100%;
-    padding: 0.75rem 0.95rem;
+    padding: 0.68rem 0.86rem;
     text-align: center;
     transition:
       background-color 180ms ease,
@@ -527,9 +545,11 @@ a {
   }
 
   .snack-card {
+    position: relative;
     display: grid;
     align-content: start;
     gap: 0.9rem;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
@@ -540,6 +560,16 @@ a {
       background-color 180ms ease,
       border-color 180ms ease,
       transform 180ms ease;
+  }
+
+  .snack-card::before {
+    position: absolute;
+    top: 0;
+    left: 1.15rem;
+    height: 2px;
+    width: 3rem;
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.42), transparent);
+    content: "";
   }
 
   .snack-card:hover {
@@ -580,17 +610,17 @@ a {
   }
 
   .snack-article-page-shell {
-    padding-block: 3rem 4rem;
+    padding-block: 2.75rem 3.75rem;
   }
 
   .snack-article-page-stack {
     display: grid;
-    gap: 1.75rem;
+    gap: 1.45rem;
   }
 
   .snack-article-hero {
     display: grid;
-    gap: 1.2rem;
+    gap: 1rem;
   }
 
   .article-back-link {
@@ -628,15 +658,15 @@ a {
 
   .snack-article-hero-copy {
     display: grid;
-    gap: 1.1rem;
-    max-width: 48rem;
+    gap: 0.9rem;
+    max-width: 44rem;
   }
 
   .snack-article-heading {
-    max-width: 52rem;
+    max-width: 46rem;
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.42rem;
+    font-size: 2.22rem;
     font-weight: 700;
     line-height: 1;
   }
@@ -668,8 +698,8 @@ a {
 
   .snack-article-content {
     display: grid;
-    gap: 1.1rem;
-    max-width: 46rem;
+    gap: 1rem;
+    max-width: 44rem;
   }
 
   .article-section,
@@ -743,35 +773,42 @@ a {
       var(--surface-elevated);
   }
 
-  .snack-track-page-shell {
-    padding-block: 3rem 4rem;
+  .certifications-page-shell,
+  .certification-track-page-shell {
+    padding-block: 2.75rem 3.5rem;
   }
 
-  .snack-track-page-stack {
-    gap: 1.75rem;
+  .certifications-page-stack,
+  .certification-track-page-stack {
+    gap: 1.25rem;
   }
 
-  .snack-track-hero {
-    display: grid;
-    gap: 1.2rem;
-  }
-
-  .snack-track-hero-copy {
+  .certifications-hero,
+  .certification-track-hero {
     display: grid;
     gap: 0.9rem;
-    max-width: 48rem;
   }
 
-  .snack-track-heading {
-    max-width: 52rem;
+  .certifications-hero {
+    max-width: 42rem;
+  }
+
+  .certification-track-hero-copy {
+    display: grid;
+    gap: 0.75rem;
+    max-width: 42rem;
+  }
+
+  .certification-track-heading {
+    max-width: 44rem;
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.72rem;
+    font-size: 2.36rem;
     font-weight: 700;
     line-height: 0.95;
   }
 
-  .snack-track-meta {
+  .certification-track-meta {
     display: grid;
     gap: 1rem;
     border: 1px solid var(--border);
@@ -791,10 +828,10 @@ a {
     display: grid;
     gap: 0.85rem;
     justify-items: start;
-    border: 1px solid var(--gold-border);
+    border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 54%),
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.035), transparent 54%),
       var(--surface-elevated);
     padding: 1.15rem;
   }
@@ -813,31 +850,31 @@ a {
   }
 
   .projects-page-shell {
-    padding-block: 3rem 4rem;
+    padding-block: 2.75rem 3.5rem;
   }
 
   .projects-page-stack {
-    gap: 1.15rem;
+    gap: 1.1rem;
   }
 
   .projects-hero {
     display: grid;
     align-items: stretch;
-    gap: 1rem;
-    max-width: 50rem;
+    gap: 0.8rem;
+    max-width: 42rem;
   }
 
   .projects-hero-copy {
     display: grid;
-    gap: 0.9rem;
-    max-width: 42rem;
+    gap: 0.75rem;
+    max-width: 36rem;
   }
 
   .project-hero-heading {
-    max-width: 42rem;
+    max-width: 38rem;
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.32rem;
+    font-size: 2.08rem;
     font-weight: 700;
     line-height: 1;
   }
@@ -868,30 +905,32 @@ a {
 
   .project-grid {
     display: grid;
-    gap: 0.95rem;
+    gap: 1rem;
   }
 
   .project-card {
+    position: relative;
     display: grid;
     align-content: start;
     gap: 0.9rem;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 42%),
       var(--surface);
     padding: 1.15rem;
-    transition:
-      border-color 180ms ease,
-      transform 180ms ease;
+    transition: border-color 180ms ease;
   }
 
-  .project-card:hover {
-    border-color: var(--gold-border);
-    background:
-      linear-gradient(180deg, rgba(var(--gold-rgb), 0.03), transparent 44%),
-      var(--surface-elevated);
-    transform: translateY(-2px);
+  .project-card::before {
+    position: absolute;
+    top: 0;
+    left: 1.15rem;
+    height: 2px;
+    width: 3rem;
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.38), transparent);
+    content: "";
   }
 
   .project-card-header {
@@ -899,8 +938,7 @@ a {
     align-items: center;
   }
 
-  .project-card .card-text,
-  .featured-project .card-text {
+  .project-card .card-text {
     margin-top: 0;
   }
 
@@ -920,66 +958,46 @@ a {
     padding: 0.42rem 0.62rem;
   }
 
-  .project-card-link {
-    display: inline-flex;
+  .project-card-status {
     width: fit-content;
-    align-items: center;
-    justify-content: center;
     border: 1px solid var(--border);
     border-radius: 999px;
+    background: rgba(var(--gold-rgb), 0.035);
     color: var(--soft-gold);
-    font-size: 0.9rem;
+    font-size: 0.78rem;
     line-height: 1;
     margin-top: 0.25rem;
     max-width: 100%;
-    padding: 0.75rem 0.95rem;
-    text-align: center;
-    text-decoration: none;
-    transition:
-      background-color 180ms ease,
-      border-color 180ms ease,
-      color 180ms ease,
-      transform 180ms ease;
-  }
-
-  .project-card-link:hover {
-    border-color: var(--gold-border);
-    background: rgba(var(--gold-rgb), 0.055);
-    color: var(--hover-gold);
-    transform: translateY(-1px);
-  }
-
-  .project-card-link:focus-visible {
-    outline: 2px solid var(--primary-gold);
-    outline-offset: 0.35rem;
+    padding: 0.42rem 0.62rem;
+    text-transform: uppercase;
   }
 
   .videos-page-shell {
-    padding-block: 3rem 4rem;
+    padding-block: 2.75rem 3.5rem;
   }
 
   .videos-page-stack {
-    gap: 1.15rem;
+    gap: 1.1rem;
   }
 
   .videos-hero {
     display: grid;
     align-items: stretch;
-    gap: 1rem;
-    max-width: 50rem;
+    gap: 0.8rem;
+    max-width: 42rem;
   }
 
   .videos-hero-copy {
     display: grid;
-    gap: 0.9rem;
-    max-width: 42rem;
+    gap: 0.75rem;
+    max-width: 36rem;
   }
 
   .video-hero-heading {
-    max-width: 42rem;
+    max-width: 38rem;
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.32rem;
+    font-size: 2.08rem;
     font-weight: 700;
     line-height: 1;
   }
@@ -1018,7 +1036,7 @@ a {
   .featured-video-copy,
   .video-card-body {
     display: grid;
-    gap: 0.9rem;
+    gap: 0.75rem;
   }
 
   .video-meta-row {
@@ -1069,6 +1087,45 @@ a {
   .video-grid {
     display: grid;
     gap: 0.95rem;
+  }
+
+  .supporting-video-section {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .supporting-video-list {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .supporting-video-link {
+    display: grid;
+    gap: 0.3rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.028), transparent 52%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.026), transparent 60%),
+      var(--surface);
+    color: inherit;
+    padding: 0.95rem;
+    text-decoration: none;
+    transition:
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .supporting-video-link:hover {
+    border-color: rgba(var(--gold-rgb), 0.3);
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-1px);
+  }
+
+  .supporting-video-link:focus-visible {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 0.35rem;
   }
 
   .video-card {
@@ -1138,31 +1195,31 @@ a {
   }
 
   .about-page-shell {
-    padding-block: 3rem 4rem;
+    padding-block: 2.75rem 3.5rem;
   }
 
   .about-page-stack {
-    gap: 1.15rem;
+    gap: 1.1rem;
   }
 
   .about-hero {
     display: grid;
     align-items: stretch;
-    gap: 1rem;
-    max-width: 50rem;
+    gap: 0.8rem;
+    max-width: 42rem;
   }
 
   .about-hero-copy {
     display: grid;
-    gap: 0.9rem;
-    max-width: 42rem;
+    gap: 0.75rem;
+    max-width: 36rem;
   }
 
   .about-hero-heading {
-    max-width: 42rem;
+    max-width: 38rem;
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.32rem;
+    font-size: 2.08rem;
     font-weight: 700;
     line-height: 1;
   }
@@ -1170,11 +1227,11 @@ a {
   .about-mission,
   .about-philosophy {
     display: grid;
-    gap: 1.15rem;
-    border: 1px solid var(--gold-border);
+    gap: 1rem;
+    border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
-      linear-gradient(135deg, rgba(var(--gold-rgb), 0.045), transparent 52%),
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.035), transparent 52%),
       var(--surface-elevated);
     padding: 1.15rem;
   }
@@ -1223,18 +1280,18 @@ a {
   }
 
   .contact-page-shell {
-    padding-block: 3rem 4rem;
+    padding-block: 2.5rem 3.5rem;
   }
 
   .contact-page-stack {
-    gap: 2rem;
+    gap: 1.25rem;
   }
 
   .contact-hero {
     display: grid;
     align-items: stretch;
-    gap: 1.1rem;
-    max-width: 50rem;
+    gap: 0.7rem;
+    max-width: 38rem;
   }
 
   .contact-method-card {
@@ -1244,23 +1301,22 @@ a {
   .contact-hero-copy {
     display: grid;
     align-content: start;
-    gap: 0.9rem;
-    max-width: 40rem;
+    gap: 0.75rem;
+    max-width: 34rem;
   }
 
   .contact-hero-heading {
-    max-width: 42rem;
+    max-width: 34rem;
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2.32rem;
+    font-size: 2.02rem;
     font-weight: 700;
     line-height: 1;
   }
 
   .contact-section {
     display: grid;
-    gap: 1.25rem;
-    margin-top: 0.25rem;
+    gap: 1rem;
   }
 
   .contact-section-heading {
@@ -1363,7 +1419,11 @@ a {
   }
 
   .home-hero {
-    padding-block: 3.8rem 3.2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    background:
+      radial-gradient(circle at 18% 0%, rgba(var(--gold-rgb), 0.05), transparent 24rem),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 72%);
+    padding-block: 3.75rem 2.65rem;
   }
 
   .hero-grid {
@@ -1373,8 +1433,20 @@ a {
 
   .hero-copy {
     display: grid;
-    gap: 1.15rem;
-    max-width: 50rem;
+    gap: 1rem;
+    max-width: 46rem;
+    text-align: left;
+  }
+
+  .home-hero .display-heading {
+    max-width: 45rem;
+    font-size: clamp(2.75rem, 8vw, 4.35rem);
+    letter-spacing: 0;
+    line-height: 0.92;
+  }
+
+  .home-hero .lead-text {
+    max-width: 33rem;
   }
 
   .hero-actions {
@@ -1464,7 +1536,13 @@ a {
   }
 
   .home-section {
-    padding-block: 3.25rem;
+    padding-block: 3rem;
+  }
+
+  .home-section-tight {
+    border-top: 1px solid rgba(255, 255, 255, 0.028);
+    background: rgba(9, 9, 9, 0.26);
+    padding-top: 2.35rem;
   }
 
   .home-section.separated {
@@ -1474,14 +1552,14 @@ a {
 
   .section-heading {
     display: grid;
-    gap: 0.65rem;
-    max-width: 46rem;
+    gap: 0.5rem;
+    max-width: 38rem;
   }
 
   .section-title {
     color: var(--foreground);
     font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
-    font-size: 2rem;
+    font-size: 1.72rem;
     font-weight: 700;
     line-height: 1.05;
   }
@@ -1493,10 +1571,10 @@ a {
 
   .section-copy {
     display: grid;
-    gap: 0.85rem;
+    gap: 0.75rem;
     color: var(--muted);
-    font-size: 0.96rem;
-    line-height: 1.72;
+    font-size: 0.94rem;
+    line-height: 1.62;
   }
 
   .preview-grid,
@@ -1506,6 +1584,10 @@ a {
   }
 
   .preview-card {
+    position: relative;
+    display: grid;
+    gap: 0.85rem;
+    overflow: hidden;
     border: 1px solid var(--border);
     border-radius: 0.5rem;
     background:
@@ -1515,6 +1597,26 @@ a {
     transition:
       border-color 180ms ease,
       transform 180ms ease;
+  }
+
+  .preview-card::before {
+    position: absolute;
+    top: 0;
+    left: 1.15rem;
+    height: 2px;
+    width: 3rem;
+    background: rgba(var(--gold-rgb), 0.3);
+    content: "";
+  }
+
+  .preview-card-link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .preview-card-link:focus-visible {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 0.35rem;
   }
 
   .preview-card:hover {
@@ -1556,6 +1658,42 @@ a {
     padding: 1.25rem;
   }
 
+  .content-card,
+  .snack-card,
+  .track-card,
+  .track-empty-state,
+  .project-card,
+  .featured-video,
+  .video-card,
+  .about-mission,
+  .about-focus-card,
+  .contact-method-card,
+  .preview-card {
+    background:
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.048), transparent 46%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.052), transparent 56%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.18), transparent 72%),
+      var(--surface);
+    box-shadow: var(--card-shadow);
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .snack-card:hover,
+  .track-card:hover,
+  .project-card:hover,
+  .video-card:hover,
+  .about-focus-card:hover,
+  .contact-method-card:hover,
+  .preview-card:hover {
+    border-color: rgba(var(--gold-rgb), 0.38);
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
   .site-footer {
     border-top: 1px solid var(--border-soft);
     background:
@@ -1566,7 +1704,7 @@ a {
 
   .footer-grid {
     display: grid;
-    gap: 1.15rem;
+    gap: 0.95rem;
   }
 
   .footer-brand {
@@ -1625,7 +1763,7 @@ a {
 
 @media (min-width: 640px) {
   .page-shell {
-    padding-block: 6rem;
+    padding-block: 4.5rem 5.25rem;
   }
 
   .site-container {
@@ -1633,23 +1771,27 @@ a {
   }
 
   .display-heading {
-    font-size: 4rem;
+    font-size: 3.25rem;
   }
 
   .lead-text {
-    font-size: 1.125rem;
+    font-size: 1.02rem;
   }
 
   .home-hero {
-    padding-block: 6rem 5rem;
+    padding-block: 4.85rem 3.4rem;
   }
 
   .home-section {
-    padding-block: 5.5rem;
+    padding-block: 4rem;
+  }
+
+  .home-section-tight {
+    padding-top: 2.75rem;
   }
 
   .section-title {
-    font-size: 3rem;
+    font-size: 2.3rem;
   }
 
   .final-cta {
@@ -1665,11 +1807,11 @@ a {
   }
 
   .snack-article-page-shell {
-    padding-block: 4.5rem 6rem;
+    padding-block: 4rem 5.25rem;
   }
 
   .snack-article-heading {
-    font-size: 3.6rem;
+    font-size: 3.05rem;
   }
 
   .snack-article-meta {
@@ -1677,15 +1819,16 @@ a {
     padding: 1.5rem;
   }
 
-  .snack-track-page-shell {
-    padding-block: 4.5rem 6rem;
+  .certifications-page-shell,
+  .certification-track-page-shell {
+    padding-block: 4rem 5.25rem;
   }
 
-  .snack-track-heading {
-    font-size: 3.35rem;
+  .certification-track-heading {
+    font-size: 2.9rem;
   }
 
-  .snack-track-meta {
+  .certification-track-meta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     padding: 1.5rem;
   }
@@ -1704,39 +1847,39 @@ a {
 
   .about-mission,
   .about-philosophy {
-    padding: 2rem;
+    padding: 1.4rem;
   }
 
   .projects-page-shell {
-    padding-block: 4.5rem 6rem;
+    padding-block: 4rem 5.25rem;
   }
 
   .videos-page-shell {
-    padding-block: 4.5rem 6rem;
+    padding-block: 4rem 5.25rem;
   }
 
   .about-page-shell {
-    padding-block: 4.5rem 6rem;
+    padding-block: 4rem 5.25rem;
   }
 
   .contact-page-shell {
-    padding-block: 4.5rem 6rem;
+    padding-block: 3.75rem 5rem;
   }
 
   .project-hero-heading {
-    font-size: 3.25rem;
+    font-size: 2.6rem;
   }
 
   .video-hero-heading {
-    font-size: 3.25rem;
+    font-size: 2.6rem;
   }
 
   .about-hero-heading {
-    font-size: 3.25rem;
+    font-size: 2.6rem;
   }
 
   .contact-hero-heading {
-    font-size: 3.25rem;
+    font-size: 2.45rem;
   }
 
   .project-grid {
@@ -1759,27 +1902,27 @@ a {
 
 @media (min-width: 1024px) {
   .page-shell {
-    padding-block: 7.5rem;
+    padding-block: 5.25rem 5.75rem;
   }
 
   .projects-page-shell {
-    padding-block: 5.25rem 7rem;
+    padding-block: 4.5rem 5.75rem;
   }
 
   .videos-page-shell {
-    padding-block: 5.25rem 7rem;
+    padding-block: 4.5rem 5.75rem;
   }
 
   .about-page-shell {
-    padding-block: 5.25rem 7rem;
+    padding-block: 4.5rem 5.75rem;
   }
 
   .contact-page-shell {
-    padding-block: 5.25rem 7rem;
+    padding-block: 4.25rem 5.5rem;
   }
 
   .display-heading {
-    font-size: 5.25rem;
+    font-size: 4.1rem;
   }
 
   .page-grid {
@@ -1822,11 +1965,11 @@ a {
   }
 
   .snack-article-page-shell {
-    padding-block: 5.25rem 7rem;
+    padding-block: 4.5rem 5.75rem;
   }
 
   .snack-article-page-stack {
-    gap: 3rem;
+    gap: 2.25rem;
   }
 
   .snack-article-hero {
@@ -1839,32 +1982,34 @@ a {
   }
 
   .snack-article-heading {
-    font-size: 4.25rem;
+    font-size: 3.55rem;
   }
 
   .snack-article-layout {
     justify-items: center;
   }
 
-  .snack-track-page-shell {
-    padding-block: 5.25rem 7rem;
+  .certifications-page-shell,
+  .certification-track-page-shell {
+    padding-block: 4.5rem 5.75rem;
   }
 
-  .snack-track-page-stack {
-    gap: 2.4rem;
+  .certifications-page-stack,
+  .certification-track-page-stack {
+    gap: 1.75rem;
   }
 
-  .snack-track-hero {
+  .certification-track-hero {
     grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.42fr);
     align-items: end;
   }
 
-  .snack-track-hero .article-back-link {
+  .certification-track-hero .article-back-link {
     grid-column: 1 / -1;
   }
 
-  .snack-track-heading {
-    font-size: 3.85rem;
+  .certification-track-heading {
+    font-size: 3.2rem;
   }
 
   .track-empty-state {
@@ -1895,23 +2040,23 @@ a {
   }
 
   .project-hero-heading {
-    font-size: 3.65rem;
+    font-size: 2.95rem;
   }
 
   .video-hero-heading {
-    font-size: 3.65rem;
+    font-size: 2.95rem;
   }
 
   .about-hero-heading {
-    font-size: 3.65rem;
+    font-size: 2.95rem;
   }
 
   .contact-hero-heading {
-    font-size: 3.65rem;
+    font-size: 2.75rem;
   }
 
   .contact-page-stack {
-    gap: 3.75rem;
+    gap: 1.75rem;
   }
 
   .contact-method-grid {
@@ -1931,23 +2076,23 @@ a {
 
 @media (min-width: 1280px) {
   .page-shell {
-    padding-block: 8.5rem;
+    padding-block: 5.75rem 6.25rem;
   }
 
   .projects-page-shell {
-    padding-block: 5.5rem 7.5rem;
+    padding-block: 4.75rem 6rem;
   }
 
   .videos-page-shell {
-    padding-block: 5.5rem 7.5rem;
+    padding-block: 4.75rem 6rem;
   }
 
   .about-page-shell {
-    padding-block: 5.5rem 7.5rem;
+    padding-block: 4.75rem 6rem;
   }
 
   .contact-page-shell {
-    padding-block: 5.5rem 7.5rem;
+    padding-block: 4.5rem 5.75rem;
   }
 
   .site-container {
@@ -1955,15 +2100,19 @@ a {
   }
 
   .home-hero {
-    padding-block: 7rem 6rem;
+    padding-block: 5.25rem 3.75rem;
   }
 
   .home-section {
-    padding-block: 6.5rem;
+    padding-block: 4.5rem;
+  }
+
+  .home-section-tight {
+    padding-top: 3rem;
   }
 
   .project-card {
-    padding: 1.5rem;
+    padding: 1.35rem;
   }
 
   .video-card {
@@ -1975,39 +2124,40 @@ a {
   }
 
   .contact-method-card {
-    padding: 1.65rem;
+    padding: 1.35rem;
   }
 
   .snack-article-page-shell {
-    padding-block: 5.5rem 7.5rem;
+    padding-block: 4.75rem 6rem;
   }
 
-  .snack-track-page-shell {
-    padding-block: 5.5rem 7.5rem;
+  .certifications-page-shell,
+  .certification-track-page-shell {
+    padding-block: 4.75rem 6rem;
   }
 
   .snack-article-heading {
-    font-size: 4.65rem;
+    font-size: 3.8rem;
   }
 
-  .snack-track-heading {
-    font-size: 4.15rem;
+  .certification-track-heading {
+    font-size: 3.35rem;
   }
 
   .project-hero-heading {
-    font-size: 3.9rem;
+    font-size: 3.1rem;
   }
 
   .video-hero-heading {
-    font-size: 3.9rem;
+    font-size: 3.1rem;
   }
 
   .about-hero-heading {
-    font-size: 3.9rem;
+    font-size: 3.1rem;
   }
 
   .contact-hero-heading {
-    font-size: 3.9rem;
+    font-size: 2.85rem;
   }
 }
 
@@ -2027,9 +2177,9 @@ a {
   .track-card-cta,
   .article-back-link,
   .project-card,
-  .project-card-link,
   .video-card,
   .video-card-link,
+  .supporting-video-link,
   .about-focus-card,
   .contact-method-card,
   .contact-card-action,
@@ -2044,9 +2194,9 @@ a {
   .snack-card:hover,
   .track-card:hover,
   .project-card:hover,
-  .project-card-link:hover,
   .video-card:hover,
   .video-card-link:hover,
+  .supporting-video-link:hover,
   .about-focus-card:hover,
   .contact-method-card:hover,
   .footer-social-link:hover {
