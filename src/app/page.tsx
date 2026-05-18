@@ -61,6 +61,7 @@ export default function Home() {
               A cinematic black-and-gold home for practical security notes,
               project previews, and video explainers.
             </p>
+            <div className="gold-divider" />
             <div className="hero-actions">
               <Link href="/snacks" className="button-link">
                 Browse Snacks

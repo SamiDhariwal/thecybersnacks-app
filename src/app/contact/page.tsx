@@ -35,6 +35,7 @@ export default function ContactPage() {
               The best way to connect is through the public channels I already
               use for videos, professional updates, and project work.
             </p>
+            <div className="gold-divider" />
           </div>
         </section>
 
