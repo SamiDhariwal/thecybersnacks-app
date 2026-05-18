@@ -210,6 +210,10 @@ a {
   .snack-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .track-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @layer components {
@@ -328,6 +332,8 @@ a {
 
   .content-card,
   .snack-card,
+  .track-card,
+  .track-empty-state,
   .featured-project,
   .project-card,
   .featured-video,
@@ -381,6 +387,113 @@ a {
   .snacks-list-heading .card-text {
     margin-top: 0;
     max-width: 38rem;
+  }
+
+  .learning-tracks-section {
+    display: grid;
+    gap: 1.1rem;
+    margin-top: 0.2rem;
+  }
+
+  .track-grid {
+    display: grid;
+    gap: 0.95rem;
+  }
+
+  .track-card {
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
+      var(--surface);
+    color: inherit;
+    padding: 1.15rem;
+    text-decoration: none;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .track-card:hover {
+    border-color: var(--gold-border);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.035), transparent 46%),
+      var(--surface-elevated);
+    transform: translateY(-2px);
+  }
+
+  .track-card:focus-visible {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 0.35rem;
+  }
+
+  .track-card:hover .track-card-cta {
+    border-color: rgba(var(--gold-rgb), 0.36);
+    background: rgba(var(--gold-rgb), 0.12);
+    color: var(--hover-gold);
+  }
+
+  .track-card-header {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.7rem;
+  }
+
+  .track-count {
+    color: var(--muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .track-card-copy {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .track-card-title {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 2.15rem;
+    font-weight: 700;
+    line-height: 0.95;
+  }
+
+  .track-certification {
+    color: var(--soft-gold);
+    font-size: 0.9rem;
+    line-height: 1.45;
+  }
+
+  .track-card .card-text {
+    margin-top: 0;
+  }
+
+  .track-card-cta {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--gold-border);
+    border-radius: 999px;
+    background: rgba(var(--gold-rgb), 0.08);
+    color: var(--primary-gold);
+    font-size: 0.9rem;
+    line-height: 1;
+    margin-top: 0.25rem;
+    max-width: 100%;
+    padding: 0.75rem 0.95rem;
+    text-align: center;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      color 180ms ease;
   }
 
   .featured-snack {
@@ -628,6 +741,75 @@ a {
     background:
       linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 52%),
       var(--surface-elevated);
+  }
+
+  .snack-track-page-shell {
+    padding-block: 3rem 4rem;
+  }
+
+  .snack-track-page-stack {
+    gap: 1.75rem;
+  }
+
+  .snack-track-hero {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .snack-track-hero-copy {
+    display: grid;
+    gap: 0.9rem;
+    max-width: 48rem;
+  }
+
+  .snack-track-heading {
+    max-width: 52rem;
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 2.72rem;
+    font-weight: 700;
+    line-height: 0.95;
+  }
+
+  .snack-track-meta {
+    display: grid;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+      rgba(16, 16, 17, 0.9);
+    padding: 1.1rem;
+  }
+
+  .track-content-section {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .track-empty-state {
+    display: grid;
+    gap: 0.85rem;
+    justify-items: start;
+    border: 1px solid var(--gold-border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 54%),
+      var(--surface-elevated);
+    padding: 1.15rem;
+  }
+
+  .track-empty-title {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .track-empty-state .card-text {
+    margin-top: 0;
+    max-width: 34rem;
   }
 
   .projects-page-shell {
@@ -1478,6 +1660,10 @@ a {
     padding: 2rem;
   }
 
+  .track-card {
+    padding: 1.35rem;
+  }
+
   .snack-article-page-shell {
     padding-block: 4.5rem 6rem;
   }
@@ -1488,6 +1674,23 @@ a {
 
   .snack-article-meta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1.5rem;
+  }
+
+  .snack-track-page-shell {
+    padding-block: 4.5rem 6rem;
+  }
+
+  .snack-track-heading {
+    font-size: 3.35rem;
+  }
+
+  .snack-track-meta {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 1.5rem;
+  }
+
+  .track-empty-state {
     padding: 1.5rem;
   }
 
@@ -1610,6 +1813,10 @@ a {
     align-items: end;
   }
 
+  .track-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .snack-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1637,6 +1844,31 @@ a {
 
   .snack-article-layout {
     justify-items: center;
+  }
+
+  .snack-track-page-shell {
+    padding-block: 5.25rem 7rem;
+  }
+
+  .snack-track-page-stack {
+    gap: 2.4rem;
+  }
+
+  .snack-track-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.42fr);
+    align-items: end;
+  }
+
+  .snack-track-hero .article-back-link {
+    grid-column: 1 / -1;
+  }
+
+  .snack-track-heading {
+    font-size: 3.85rem;
+  }
+
+  .track-empty-state {
+    padding: 1.75rem;
   }
 
   .article-section,
@@ -1750,8 +1982,16 @@ a {
     padding-block: 5.5rem 7.5rem;
   }
 
+  .snack-track-page-shell {
+    padding-block: 5.5rem 7.5rem;
+  }
+
   .snack-article-heading {
     font-size: 4.65rem;
+  }
+
+  .snack-track-heading {
+    font-size: 4.15rem;
   }
 
   .project-hero-heading {
@@ -1783,6 +2023,8 @@ a {
   .preview-card,
   .video-placeholder,
   .snack-card,
+  .track-card,
+  .track-card-cta,
   .article-back-link,
   .project-card,
   .project-card-link,
@@ -1800,6 +2042,7 @@ a {
   .preview-card:hover,
   .video-placeholder:hover,
   .snack-card:hover,
+  .track-card:hover,
   .project-card:hover,
   .project-card-link:hover,
   .video-card:hover,
