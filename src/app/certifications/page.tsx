@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import { CertificationTrackCard } from "@/components/CertificationTrackCard";
-import {
-  certificationTracks,
-  getSnackArticlesForCertificationTrack,
-} from "@/lib/certificationTracks";
+import { certificationTracks } from "@/lib/certificationTracks";
+import { getCertificationTopics } from "@/lib/certificationTopics";
 
 export const metadata: Metadata = {
   title: "Certifications | The Cyber Snacks",
   description:
-    "Static certification study tracks for SSCP, CISM, and CISSP Cyber Snacks.",
+    "Static certification study tracks for SSCP, CISM, and CISSP learning topics.",
 };
 
 export default function CertificationsPage() {
@@ -19,7 +17,7 @@ export default function CertificationsPage() {
           <p className="eyebrow">Certifications</p>
           <h1 className="display-heading">Focused certification tracks.</h1>
           <p className="lead-text">
-            Practical Snacks grouped around SSCP, CISM, and CISSP study goals.
+            Practical study topics grouped around SSCP, CISM, and CISSP goals.
           </p>
           <div className="gold-divider" />
         </div>
@@ -32,12 +30,11 @@ export default function CertificationsPage() {
 
           <div className="track-grid">
             {certificationTracks.map((track) => {
-              const articleCount = getSnackArticlesForCertificationTrack(
-                track.slug,
-              ).length;
+              const topicCount = getCertificationTopics(track.slug).length;
+
               return (
                 <CertificationTrackCard
-                  articleCount={articleCount}
+                  topicCount={topicCount}
                   key={track.slug}
                   track={track}
                 />

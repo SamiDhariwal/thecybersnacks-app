@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { CertificationTrackTemplate } from "@/components/CertificationTrackTemplate";
-import {
-  getRequiredCertificationTrack,
-  getSnackArticlesForCertificationTrack,
-} from "@/lib/certificationTracks";
+import { getRequiredCertificationTrack } from "@/lib/certificationTracks";
+import { getCertificationTopics } from "@/lib/certificationTopics";
 
 const track = getRequiredCertificationTrack("cism");
 
 export const metadata: Metadata = track.metadata;
 
 export default function CismCertificationPage() {
-  const articles = getSnackArticlesForCertificationTrack(track.slug);
+  const topics = getCertificationTopics(track.slug);
 
-  return <CertificationTrackTemplate articles={articles} track={track} />;
+  return <CertificationTrackTemplate topics={topics} track={track} />;
 }

@@ -1,5 +1,3 @@
-import { snackArticles } from "@/lib/snackArticles";
-
 export type CertificationTrackSlug = "sscp" | "cism" | "cissp";
 
 export type CertificationTrack = {
@@ -19,11 +17,11 @@ export const certificationTracks: CertificationTrack[] = [
     name: "SSCP",
     certification: "Systems Security Certified Practitioner",
     description:
-      "Operational security foundations for access control, endpoint habits, and practical defensive judgement.",
+      "Operational security foundations for access control, governance, risk-aware decisions, and practical defensive judgement.",
     metadata: {
       title: "SSCP Certification Track | The Cyber Snacks",
       description:
-        "A focused SSCP certification track with practical Cyber Snacks on access control, endpoint security, and defensive habits.",
+        "A focused SSCP certification track with beginner-friendly study topics for operational security foundations.",
     },
   },
   {
@@ -31,11 +29,11 @@ export const certificationTracks: CertificationTrack[] = [
     name: "CISM",
     certification: "Certified Information Security Manager",
     description:
-      "Governance, risk, and management-focused Snacks for translating security decisions into business context.",
+      "Governance, risk, and management-focused topics for translating security decisions into business context.",
     metadata: {
       title: "CISM Certification Track | The Cyber Snacks",
       description:
-        "A static CISM certification track for governance, risk, and security management Cyber Snacks.",
+        "A static CISM certification track for governance, risk, and security management study topics.",
     },
   },
   {
@@ -47,7 +45,7 @@ export const certificationTracks: CertificationTrack[] = [
     metadata: {
       title: "CISSP Certification Track | The Cyber Snacks",
       description:
-        "A focused CISSP certification track with Cyber Snacks on security principles, identity, architecture, and risk-aware decisions.",
+        "A focused CISSP certification track for security principles, identity, architecture, and risk-aware decisions.",
     },
   },
 ];
@@ -64,12 +62,4 @@ export function getRequiredCertificationTrack(slug: CertificationTrackSlug) {
   }
 
   return track;
-}
-
-export function getSnackArticlesForCertificationTrack(
-  slug: CertificationTrackSlug,
-) {
-  return snackArticles.filter((article) =>
-    article.certificationTrackSlugs.includes(slug),
-  );
 }

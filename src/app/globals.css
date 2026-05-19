@@ -218,6 +218,14 @@ a {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .cert-topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cert-concept-menu-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .track-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -333,7 +341,7 @@ a {
   }
 
   .foundation-panel {
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.075);
     border-radius: 0.5rem;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
@@ -357,6 +365,12 @@ a {
   .content-card,
   .snack-card,
   .track-card,
+  .cert-topic-card,
+  .cert-concept-menu-card,
+  .cert-study-card,
+  .cert-topic-summary,
+  .cert-topic-section,
+  .cert-review-checklist,
   .track-empty-state,
   .featured-project,
   .project-card,
@@ -439,10 +453,10 @@ a {
     align-content: start;
     gap: 1rem;
     overflow: hidden;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.075);
     border-radius: 0.5rem;
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.034), transparent 44%),
       var(--surface);
     color: inherit;
     padding: 1.15rem;
@@ -539,6 +553,178 @@ a {
       background-color 180ms ease,
       border-color 180ms ease,
       color 180ms ease;
+  }
+
+  .cert-topic-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cert-topic-card {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.034), transparent 48%),
+      var(--surface);
+    color: inherit;
+    padding: 1.15rem;
+    text-decoration: none;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .cert-topic-card::before {
+    position: absolute;
+    top: 0;
+    left: 1.15rem;
+    height: 2px;
+    width: 3.25rem;
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.62), transparent);
+    content: "";
+  }
+
+  .cert-topic-card:hover {
+    border-color: rgba(var(--gold-rgb), 0.38);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.04), transparent 48%),
+      var(--surface-elevated);
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .cert-topic-card:focus-visible {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 0.35rem;
+  }
+
+  .cert-topic-card:hover .track-card-cta {
+    border-color: rgba(var(--gold-rgb), 0.36);
+    background: rgba(var(--gold-rgb), 0.12);
+    color: var(--hover-gold);
+  }
+
+  .cert-topic-card-header {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.7rem;
+  }
+
+  .cert-topic-card-copy {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .cert-topic-category {
+    color: var(--soft-gold);
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
+  .cert-topic-card .card-text {
+    margin-top: 0;
+  }
+
+  .cert-concept-menu-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cert-concept-menu-card {
+    position: relative;
+    display: grid;
+    align-content: start;
+    gap: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.034), transparent 48%),
+      var(--surface);
+    color: inherit;
+    min-height: 14rem;
+    padding: 1.15rem;
+    text-decoration: none;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .cert-concept-menu-card::before {
+    position: absolute;
+    top: 0;
+    left: 1.15rem;
+    height: 2px;
+    width: 3.25rem;
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.58), transparent);
+    content: "";
+  }
+
+  .cert-concept-menu-card:hover {
+    border-color: rgba(var(--gold-rgb), 0.38);
+    background:
+      linear-gradient(180deg, rgba(var(--gold-rgb), 0.04), transparent 48%),
+      var(--surface-elevated);
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .cert-concept-menu-card:focus-visible {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 0.35rem;
+  }
+
+  .cert-concept-menu-card:hover .track-card-cta {
+    border-color: rgba(var(--gold-rgb), 0.36);
+    background: rgba(var(--gold-rgb), 0.12);
+    color: var(--hover-gold);
+  }
+
+  .cert-concept-menu-card-header {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.7rem;
+  }
+
+  .cert-concept-menu-badge {
+    color: var(--muted);
+    font-size: 0.82rem;
+    line-height: 1.5;
+    white-space: nowrap;
+  }
+
+  .cert-concept-menu-card-copy {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .cert-concept-menu-card-copy h2 {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 1.42rem;
+    font-weight: 700;
+    line-height: 1.08;
+  }
+
+  .cert-concept-menu-card-copy p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.58;
   }
 
   .featured-snack {
@@ -876,6 +1062,310 @@ a {
     max-width: 34rem;
   }
 
+  .certification-topic-page-shell {
+    padding-block: 2.75rem 3.5rem;
+  }
+
+  .certification-topic-page-stack {
+    display: grid;
+    gap: 1.45rem;
+  }
+
+  .certification-topic-hero {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .certification-topic-hero-copy {
+    display: grid;
+    gap: 0.85rem;
+    max-width: 48rem;
+  }
+
+  .certification-topic-heading {
+    max-width: 50rem;
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 2.22rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .certification-topic-meta {
+    display: grid;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
+      rgba(16, 16, 17, 0.9);
+    padding: 1.1rem;
+  }
+
+  .certification-topic-layout {
+    display: grid;
+    justify-items: start;
+  }
+
+  .certification-topic-content {
+    display: grid;
+    gap: 1rem;
+    max-width: 58rem;
+  }
+
+  .cert-study-card-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cert-study-card {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.04), transparent 46%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.052), transparent 56%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.18), transparent 72%),
+      var(--surface);
+    box-shadow: var(--card-shadow);
+    padding: 1.15rem;
+  }
+
+  .cert-study-card::before {
+    position: absolute;
+    top: 0;
+    left: 1.15rem;
+    height: 2px;
+    width: 3.5rem;
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.58), transparent);
+    content: "";
+  }
+
+  .cert-study-card h2 {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 1.72rem;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+
+  .cert-study-card-body,
+  .cert-card-list-block,
+  .cert-card-subsection {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .cert-study-card p,
+  .cert-study-card li {
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.72;
+  }
+
+  .cert-study-card ul {
+    display: grid;
+    gap: 0.48rem;
+    list-style: none;
+  }
+
+  .cert-study-card li {
+    position: relative;
+    padding-left: 1.25rem;
+  }
+
+  .cert-study-card li::before {
+    position: absolute;
+    top: 0.72rem;
+    left: 0;
+    height: 0.38rem;
+    width: 0.38rem;
+    border-radius: 999px;
+    background: rgba(var(--gold-rgb), 0.75);
+    content: "";
+  }
+
+  .cert-focus-quote {
+    display: grid;
+    gap: 0.5rem;
+    border-left: 2px solid rgba(var(--gold-rgb), 0.46);
+    background: rgba(var(--gold-rgb), 0.04);
+    padding: 0.85rem 0.95rem;
+  }
+
+  .cert-focus-label,
+  .cert-callout-label {
+    color: var(--soft-gold);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .cert-study-card .cert-focus-label,
+  .cert-study-card .cert-callout-label {
+    color: var(--soft-gold);
+    line-height: 1;
+  }
+
+  .cert-focus-quote blockquote {
+    color: var(--foreground);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .cert-card-subsection {
+    border-left: 1px solid rgba(var(--gold-rgb), 0.22);
+    padding-left: 0.9rem;
+  }
+
+  .cert-card-subsection h3 {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 1.16rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .cert-card-subsection .cert-card-subsection {
+    border-left-color: var(--border);
+    gap: 0.35rem;
+    padding-left: 0.75rem;
+  }
+
+  .cert-topic-summary,
+  .cert-topic-section,
+  .cert-review-checklist {
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 44%),
+      var(--surface);
+    padding: 1.15rem;
+  }
+
+  .cert-topic-summary {
+    display: grid;
+    gap: 0.85rem;
+    border-color: var(--gold-border);
+    background:
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.05), transparent 52%),
+      var(--surface-elevated);
+  }
+
+  .cert-topic-section,
+  .cert-review-checklist {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .cert-topic-section-header {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .cert-topic-section h2,
+  .cert-review-checklist h2 {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .cert-topic-section h3 {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  .cert-topic-summary p,
+  .cert-topic-section p,
+  .cert-review-checklist li {
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.72;
+  }
+
+  .cert-concept-list {
+    display: grid;
+    border-top: 1px solid var(--border);
+  }
+
+  .cert-concept-card {
+    display: grid;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-soft);
+    padding-block: 0.95rem;
+  }
+
+  .cert-exam-note {
+    border-left: 2px solid rgba(var(--gold-rgb), 0.42);
+    color: var(--muted);
+    padding-left: 0.85rem;
+  }
+
+  .cert-exam-note span {
+    color: var(--soft-gold);
+    font-weight: 700;
+  }
+
+  .cert-scenario-box,
+  .cert-memory-tip {
+    display: grid;
+    gap: 0.55rem;
+    border: 1px solid rgba(var(--gold-rgb), 0.18);
+    border-left: 2px solid rgba(var(--gold-rgb), 0.5);
+    border-radius: 0.45rem;
+    background: rgba(var(--gold-rgb), 0.045);
+    padding: 0.95rem;
+  }
+
+  .cert-scenario-box h3 {
+    font-size: 1.08rem;
+  }
+
+  .cert-callout-label {
+    color: var(--soft-gold);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .cert-review-checklist {
+    border-color: var(--gold-border);
+  }
+
+  .cert-review-checklist ul {
+    display: grid;
+    gap: 0.8rem;
+    list-style: none;
+  }
+
+  .cert-review-checklist li {
+    position: relative;
+    padding-left: 1.35rem;
+  }
+
+  .cert-review-checklist li::before {
+    position: absolute;
+    top: 0.72rem;
+    left: 0;
+    height: 0.42rem;
+    width: 0.42rem;
+    border-radius: 999px;
+    background: var(--soft-gold);
+    content: "";
+  }
+
   .projects-page-shell {
     padding-block: 2.75rem 3.5rem;
   }
@@ -965,24 +1455,17 @@ a {
     align-items: center;
   }
 
+  .project-card-category {
+    color: var(--soft-gold);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+  }
+
   .project-card .card-text {
     margin-top: 0;
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-
-  .project-tag {
-    border: 1px solid var(--gold-border);
-    border-radius: 999px;
-    background: rgba(var(--gold-rgb), 0.03);
-    color: var(--soft-gold);
-    font-size: 0.78rem;
-    line-height: 1;
-    padding: 0.42rem 0.62rem;
   }
 
   .project-card-status {
@@ -1733,6 +2216,12 @@ a {
   .content-card,
   .snack-card,
   .track-card,
+  .cert-topic-card,
+  .cert-concept-menu-card,
+  .cert-study-card,
+  .cert-topic-summary,
+  .cert-topic-section,
+  .cert-review-checklist,
   .track-empty-state,
   .project-card,
   .featured-video,
@@ -1756,7 +2245,8 @@ a {
 
   .snack-card:hover,
   .track-card:hover,
-  .project-card:hover,
+  .cert-topic-card:hover,
+  .cert-concept-menu-card:hover,
   .video-card:hover,
   .about-focus-card:hover,
   .contact-method-card:hover,
@@ -1878,6 +2368,14 @@ a {
     padding: 1.35rem;
   }
 
+  .cert-topic-card {
+    padding: 1.35rem;
+  }
+
+  .cert-concept-menu-card {
+    padding: 1.35rem;
+  }
+
   .snack-article-page-shell {
     padding-block: 4rem 5.25rem;
   }
@@ -1892,7 +2390,8 @@ a {
   }
 
   .certifications-page-shell,
-  .certification-track-page-shell {
+  .certification-track-page-shell,
+  .certification-topic-page-shell {
     padding-block: 4rem 5.25rem;
   }
 
@@ -1900,12 +2399,28 @@ a {
     font-size: 2.9rem;
   }
 
+  .certification-topic-heading {
+    font-size: 3.05rem;
+  }
+
   .certification-track-meta {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     padding: 1.5rem;
   }
 
+  .certification-topic-meta {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1.5rem;
+  }
+
   .track-empty-state {
+    padding: 1.5rem;
+  }
+
+  .cert-topic-summary,
+  .cert-study-card,
+  .cert-topic-section,
+  .cert-review-checklist {
     padding: 1.5rem;
   }
 
@@ -2032,6 +2547,14 @@ a {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .cert-topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cert-concept-menu-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .snack-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2062,21 +2585,25 @@ a {
   }
 
   .certifications-page-shell,
-  .certification-track-page-shell {
+  .certification-track-page-shell,
+  .certification-topic-page-shell {
     padding-block: 4.5rem 5.75rem;
   }
 
   .certifications-page-stack,
-  .certification-track-page-stack {
+  .certification-track-page-stack,
+  .certification-topic-page-stack {
     gap: 1.75rem;
   }
 
-  .certification-track-hero {
+  .certification-track-hero,
+  .certification-topic-hero {
     grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.42fr);
     align-items: end;
   }
 
-  .certification-track-hero .article-back-link {
+  .certification-track-hero .article-back-link,
+  .certification-topic-hero .article-back-link {
     grid-column: 1 / -1;
   }
 
@@ -2084,13 +2611,25 @@ a {
     font-size: 3.2rem;
   }
 
+  .certification-topic-heading {
+    font-size: 3.55rem;
+  }
+
   .track-empty-state {
     padding: 1.75rem;
   }
 
+  .certification-topic-layout {
+    justify-items: center;
+  }
+
   .article-section,
   .article-checklist,
-  .article-takeaway {
+  .article-takeaway,
+  .cert-topic-summary,
+  .cert-study-card,
+  .cert-topic-section,
+  .cert-review-checklist {
     padding: 1.75rem;
   }
 
@@ -2204,7 +2743,8 @@ a {
   }
 
   .certifications-page-shell,
-  .certification-track-page-shell {
+  .certification-track-page-shell,
+  .certification-topic-page-shell {
     padding-block: 4.75rem 6rem;
   }
 
@@ -2214,6 +2754,10 @@ a {
 
   .certification-track-heading {
     font-size: 3.35rem;
+  }
+
+  .certification-topic-heading {
+    font-size: 3.8rem;
   }
 
   .project-hero-heading {
@@ -2246,6 +2790,8 @@ a {
   .video-placeholder,
   .snack-card,
   .track-card,
+  .cert-topic-card,
+  .cert-concept-menu-card,
   .track-card-cta,
   .article-back-link,
   .project-card,
@@ -2265,7 +2811,8 @@ a {
   .video-placeholder:hover,
   .snack-card:hover,
   .track-card:hover,
-  .project-card:hover,
+  .cert-topic-card:hover,
+  .cert-concept-menu-card:hover,
   .video-card:hover,
   .video-card-link:hover,
   .supporting-video-link:hover,

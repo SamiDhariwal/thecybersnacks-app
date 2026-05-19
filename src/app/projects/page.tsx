@@ -1,3 +1,5 @@
+type ProjectStatus = "Drafting" | "Planned" | "In Progress";
+
 const projects = [
   {
     category: "Microsoft 365 Security",
@@ -5,7 +7,6 @@ const projects = [
     description:
       "A practical baseline for MFA coverage, admin roles, mailbox safety, external sharing, and audit logging.",
     status: "In Progress",
-    tags: ["Microsoft 365", "Entra ID", "Defender"],
   },
   {
     category: "Endpoint Security",
@@ -13,7 +14,6 @@ const projects = [
     description:
       "A focused endpoint review for reducing everyday admin access and tightening common device risk.",
     status: "Drafting",
-    tags: ["Least Privilege", "Endpoint", "Intune"],
   },
   {
     category: "Email Security",
@@ -21,9 +21,13 @@ const projects = [
     description:
       "A simple review path for risky forwarding, hidden inbox rules, and mailbox settings often abused after account compromise.",
     status: "Planned",
-    tags: ["Exchange Online", "Mailbox Rules", "Review"],
   },
-];
+] satisfies {
+  category: string;
+  title: string;
+  description: string;
+  status: ProjectStatus;
+}[];
 
 export default function ProjectsPage() {
   return (
@@ -44,25 +48,20 @@ export default function ProjectsPage() {
 
         <div className="section-heading">
           <p className="eyebrow">Case Studies</p>
-          <h2 className="section-title">No fake links. Just status.</h2>
+          <h2 className="section-title">
+            Practical security work, documented clearly.
+          </h2>
         </div>
 
         <div className="project-grid">
           {projects.map((project) => (
             <article className="project-card" key={project.title}>
               <div className="project-card-header">
-                <p className="category-badge">{project.category}</p>
+                <p className="project-card-category">{project.category}</p>
               </div>
               <h3 className="card-title">{project.title}</h3>
               <p className="card-text">{project.description}</p>
-              <div className="project-tags">
-                {project.tags.map((tag) => (
-                  <span className="project-tag" key={tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-              <p className="project-card-status">{project.status}</p>
+              <span className="project-card-status">{project.status}</span>
             </article>
           ))}
         </div>

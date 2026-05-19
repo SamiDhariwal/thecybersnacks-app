@@ -1,18 +1,18 @@
 import Link from "next/link";
-import { SnackCard } from "@/components/SnackCard";
-import type { SnackArticle } from "@/lib/snackArticles";
+import { CertificationTopicCard } from "@/components/CertificationTopicCard";
+import type { CertificationTopic } from "@/lib/certificationTopics";
 import type { CertificationTrack } from "@/lib/certificationTracks";
 
 type CertificationTrackTemplateProps = {
-  articles: SnackArticle[];
+  topics: CertificationTopic[];
   track: CertificationTrack;
 };
 
 export function CertificationTrackTemplate({
-  articles,
+  topics,
   track,
 }: CertificationTrackTemplateProps) {
-  const articleLabel = articles.length === 1 ? "Snack" : "Snacks";
+  const topicLabel = topics.length === 1 ? "Topic" : "Topics";
 
   return (
     <main className="page-shell certification-track-page-shell">
@@ -31,36 +31,39 @@ export function CertificationTrackTemplate({
 
           <div className="certification-track-meta" aria-label="Track details">
             <div>
-              <p className="overview-label">Related content</p>
+              <p className="overview-label">Learning topics</p>
               <p className="article-meta-value">
-                {articles.length} {articleLabel}
+                {topics.length} {topicLabel}
               </p>
             </div>
             <div>
               <p className="overview-label">Format</p>
-              <p className="article-meta-value">Study track</p>
+              <p className="article-meta-value">Certification path</p>
             </div>
           </div>
         </header>
 
         <section className="track-content-section">
           <div className="section-heading snacks-list-heading">
-            <p className="eyebrow">Related Snacks</p>
-            <h2 className="section-title">{track.name} Cyber Snacks</h2>
+            <p className="eyebrow">Study Topics</p>
+            <h2 className="section-title">{track.name} learning path</h2>
           </div>
 
-          {articles.length > 0 ? (
-            <div className="snack-grid">
-              {articles.map((snack) => (
-                <SnackCard snack={snack} key={snack.slug} />
+          {topics.length > 0 ? (
+            <div className="cert-topic-grid">
+              {topics.map((topic) => (
+                <CertificationTopicCard topic={topic} key={topic.slug} />
               ))}
             </div>
           ) : (
             <div className="track-empty-state">
               <p className="category-badge">Coming Soon</p>
-              <h3 className="track-empty-title">Content will be added soon.</h3>
+              <h3 className="track-empty-title">
+                This track is being prepared.
+              </h3>
               <p className="card-text">
-                Focused Snack articles will appear here as the library grows.
+                Structured certification topics will appear here once they are
+                ready for revision.
               </p>
             </div>
           )}

@@ -1,10 +1,8 @@
 import Link from "next/link";
 import { CertificationTrackCard } from "@/components/CertificationTrackCard";
 import { SnackCard } from "@/components/SnackCard";
-import {
-  certificationTracks,
-  getSnackArticlesForCertificationTrack,
-} from "@/lib/certificationTracks";
+import { certificationTracks } from "@/lib/certificationTracks";
+import { getCertificationTopics } from "@/lib/certificationTopics";
 import { snackArticles } from "@/lib/snackArticles";
 
 export default function Home() {
@@ -59,9 +57,7 @@ export default function Home() {
           <div className="track-grid">
             {certificationTracks.map((track) => (
               <CertificationTrackCard
-                articleCount={
-                  getSnackArticlesForCertificationTrack(track.slug).length
-                }
+                topicCount={getCertificationTopics(track.slug).length}
                 key={track.slug}
                 track={track}
               />

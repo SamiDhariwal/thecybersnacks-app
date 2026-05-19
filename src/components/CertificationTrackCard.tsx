@@ -2,22 +2,22 @@ import Link from "next/link";
 import type { CertificationTrack } from "@/lib/certificationTracks";
 
 type CertificationTrackCardProps = {
-  articleCount: number;
+  topicCount: number;
   track: CertificationTrack;
 };
 
 export function CertificationTrackCard({
-  articleCount,
+  topicCount,
   track,
 }: CertificationTrackCardProps) {
-  const articleLabel = articleCount === 1 ? "Snack" : "Snacks";
+  const topicLabel = topicCount === 1 ? "Topic" : "Topics";
 
   return (
     <Link className="track-card" href={`/certifications/${track.slug}`}>
       <div className="track-card-header">
         <p className="category-badge">Study Track</p>
         <p className="track-count">
-          {articleCount} {articleLabel}
+          {topicCount} {topicLabel}
         </p>
       </div>
       <div className="track-card-copy">
