@@ -3,11 +3,13 @@ import type {
   CertificationTopic,
   CertificationTopicConcept,
   CertificationTopicContentBlock,
+  CertificationTopicLesson,
 } from "@/lib/certificationTopics";
 import type { CertificationTrack } from "@/lib/certificationTracks";
 
 type CertificationConceptTemplateProps = {
   concept: CertificationTopicConcept;
+  lesson: CertificationTopicLesson;
   topic: CertificationTopic;
   track: CertificationTrack;
 };
@@ -45,6 +47,31 @@ function renderContentBlocks(
       );
     }
 
+    if (block.type === "table") {
+      return (
+        <div className="cert-table-wrap" key={key}>
+          <table className="cert-comparison-table">
+            <thead>
+              <tr>
+                {block.headers.map((header) => (
+                  <th key={header}>{header}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {block.rows.map((row) => (
+                <tr key={row.join("-")}>
+                  {row.map((cell) => (
+                    <td key={cell}>{cell}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+
     return (
       <section className="cert-card-subsection" key={key}>
         <h3>{block.title}</h3>
@@ -56,6 +83,7 @@ function renderContentBlocks(
 
 export function CertificationConceptTemplate({
   concept,
+  lesson,
   topic,
   track,
 }: CertificationConceptTemplateProps) {
@@ -64,10 +92,10 @@ export function CertificationConceptTemplate({
       <article className="site-container certification-topic-page-stack">
         <header className="certification-topic-hero">
           <Link
-            href={`/certifications/${track.slug}/${topic.slug}`}
+            href={`/certifications/${track.slug}/${topic.slug}/${lesson.slug}`}
             className="article-back-link"
           >
-            Back to Security Concepts and Practices
+            {`Back to ${lesson.title}`}
           </Link>
 
           <div className="certification-topic-hero-copy">
@@ -78,8 +106,8 @@ export function CertificationConceptTemplate({
 
           <div className="certification-topic-meta" aria-label="Concept details">
             <div>
-              <p className="overview-label">Topic</p>
-              <p className="article-meta-value">{topic.title}</p>
+              <p className="overview-label">Lesson</p>
+              <p className="article-meta-value">{lesson.title}</p>
             </div>
             {concept.badge ? (
               <div>

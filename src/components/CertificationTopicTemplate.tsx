@@ -1,6 +1,6 @@
 import Link from "next/link";
 import {
-  getCertificationTopicConcepts,
+  getCertificationTopicLessons,
   type CertificationTopic,
 } from "@/lib/certificationTopics";
 import type { CertificationTrack } from "@/lib/certificationTracks";
@@ -14,8 +14,8 @@ export function CertificationTopicTemplate({
   topic,
   track,
 }: CertificationTopicTemplateProps) {
-  const concepts = getCertificationTopicConcepts(topic);
-  const conceptLabel = concepts.length === 1 ? "concept" : "concepts";
+  const lessons = getCertificationTopicLessons(topic);
+  const lessonLabel = lessons.length === 1 ? "lesson" : "lessons";
 
   return (
     <main className="page-shell certification-topic-page-shell">
@@ -40,9 +40,9 @@ export function CertificationTopicTemplate({
               <p className="article-meta-value">{topic.readTime}</p>
             </div>
             <div>
-              <p className="overview-label">Concepts</p>
+              <p className="overview-label">Lessons</p>
               <p className="article-meta-value">
-                {`${concepts.length} ${conceptLabel}`}
+                {`${lessons.length} ${lessonLabel}`}
               </p>
             </div>
           </div>
@@ -50,27 +50,27 @@ export function CertificationTopicTemplate({
 
         <section
           className="cert-concept-menu-grid"
-          aria-label="Security Concepts and Practices concepts"
+          aria-label="Security Concepts and Practices lessons"
         >
-          {concepts.map((concept) => (
+          {lessons.map((lesson) => (
             <Link
-              className="cert-concept-menu-card"
-              href={`/certifications/${track.slug}/${topic.slug}/${concept.slug}`}
-              key={concept.slug}
+              className="cert-concept-menu-card cert-lesson-menu-card"
+              href={`/certifications/${track.slug}/${topic.slug}/${lesson.slug}`}
+              key={lesson.slug}
             >
               <div className="cert-concept-menu-card-header">
-                <p className="category-badge">{`Concept ${concept.order}`}</p>
-                {concept.badge ? (
-                  <p className="cert-concept-menu-badge">{concept.badge}</p>
+                <p className="category-badge">{`Lesson ${lesson.order}`}</p>
+                {lesson.badge ? (
+                  <p className="cert-concept-menu-badge">{lesson.badge}</p>
                 ) : null}
               </div>
 
               <div className="cert-concept-menu-card-copy">
-                <h2>{concept.title}</h2>
-                <p>{concept.summary}</p>
+                <h2>{lesson.title}</h2>
+                <p>{lesson.summary}</p>
               </div>
 
-              <span className="track-card-cta">Open concept</span>
+              <span className="track-card-cta">Open lesson</span>
             </Link>
           ))}
         </section>

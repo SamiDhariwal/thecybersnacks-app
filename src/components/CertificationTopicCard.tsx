@@ -12,17 +12,16 @@ export function CertificationTopicCard({ topic }: CertificationTopicCardProps) {
       href={`/certifications/${topic.trackSlug}/${topic.slug}`}
     >
       <div className="cert-topic-card-header">
-        <p className="category-badge">{`Topic ${topic.topicNumber}`}</p>
+        <p className="category-badge cert-domain-badge">{topic.category}</p>
         <p className="read-time">{topic.readTime}</p>
       </div>
 
       <div className="cert-topic-card-copy">
-        <p className="cert-topic-category">{topic.category}</p>
         <h3 className="card-title">{topic.title}</h3>
         <p className="card-text">{topic.subtitle}</p>
       </div>
 
-      <span className="track-card-cta">Start topic</span>
+      <span className="track-card-cta">Explore Domain</span>
     </Link>
   );
 }

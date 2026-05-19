@@ -1,31 +1,31 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CertificationConceptTemplate } from "@/components/CertificationConceptTemplate";
+import { CertificationLessonTemplate } from "@/components/CertificationLessonTemplate";
 import { getRequiredCertificationTrack } from "@/lib/certificationTracks";
 import {
   getCertificationTopic,
-  getCertificationTopicConcept,
-  getCertificationTopicConcepts,
+  getCertificationTopicLesson,
+  getCertificationTopicLessons,
   getCertificationTopics,
 } from "@/lib/certificationTopics";
 
-type SscpConceptRouteParams = {
+type SscpLessonRouteParams = {
   conceptSlug: string;
   slug: string;
 };
 
-type SscpConceptPageProps = {
-  params: Promise<SscpConceptRouteParams>;
+type SscpLessonPageProps = {
+  params: Promise<SscpLessonRouteParams>;
 };
 
 const track = getRequiredCertificationTrack("sscp");
 
 export const dynamicParams = false;
 
-export function generateStaticParams(): SscpConceptRouteParams[] {
+export function generateStaticParams(): SscpLessonRouteParams[] {
   return getCertificationTopics(track.slug).flatMap((topic) => {
-    return getCertificationTopicConcepts(topic).map((concept) => ({
-      conceptSlug: concept.slug,
+    return getCertificationTopicLessons(topic).map((lesson) => ({
+      conceptSlug: lesson.slug,
       slug: topic.slug,
     }));
   });
@@ -33,35 +33,33 @@ export function generateStaticParams(): SscpConceptRouteParams[] {
 
 export async function generateMetadata({
   params,
-}: SscpConceptPageProps): Promise<Metadata> {
+}: SscpLessonPageProps): Promise<Metadata> {
   const { conceptSlug, slug } = await params;
   const topic = getCertificationTopic(track.slug, slug);
-  const concept = getCertificationTopicConcept(track.slug, slug, conceptSlug);
+  const lesson = getCertificationTopicLesson(track.slug, slug, conceptSlug);
 
-  if (!topic || !concept) {
+  if (!topic || !lesson) {
     notFound();
   }
 
   return {
-    title: `${concept.title} | ${topic.title} | The Cyber Snacks`,
-    description: concept.summary,
+    title: `${lesson.title} | ${topic.title} | The Cyber Snacks`,
+    description: lesson.summary,
   };
 }
 
-export default async function SscpConceptPage({
-  params,
-}: SscpConceptPageProps) {
+export default async function SscpLessonPage({ params }: SscpLessonPageProps) {
   const { conceptSlug, slug } = await params;
   const topic = getCertificationTopic(track.slug, slug);
-  const concept = getCertificationTopicConcept(track.slug, slug, conceptSlug);
+  const lesson = getCertificationTopicLesson(track.slug, slug, conceptSlug);
 
-  if (!topic || !concept) {
+  if (!topic || !lesson) {
     notFound();
   }
 
   return (
-    <CertificationConceptTemplate
-      concept={concept}
+    <CertificationLessonTemplate
+      lesson={lesson}
       topic={topic}
       track={track}
     />

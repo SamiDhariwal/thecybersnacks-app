@@ -16,6 +16,11 @@ export type CertificationTopicContentBlock =
       text: string;
     }
   | {
+      type: "table";
+      headers: string[];
+      rows: string[][];
+    }
+  | {
       type: "subsection";
       title: string;
       blocks: CertificationTopicContentBlock[];
@@ -32,6 +37,17 @@ export type CertificationTopicConcept = {
   memoryTip?: string;
 };
 
+export type CertificationTopicLesson = {
+  order: number;
+  title: string;
+  slug: string;
+  summary: string;
+  badge?: string;
+  blocks: CertificationTopicContentBlock[];
+  scenario?: CertificationTopicContentBlock[];
+  concepts: CertificationTopicConcept[];
+};
+
 export type CertificationTopic = {
   trackSlug: CertificationTrackSlug;
   topicNumber: number;
@@ -40,7 +56,7 @@ export type CertificationTopic = {
   subtitle: string;
   category: string;
   readTime: string;
-  concepts: CertificationTopicConcept[];
+  lessons: CertificationTopicLesson[];
   metadata: {
     title: string;
     description: string;
@@ -57,57 +73,66 @@ export const certificationTopics: CertificationTopic[] = [
       "Security fundamentals, CIA triad, governance, frameworks, and core access principles.",
     category: "SSCP Domain 1",
     readTime: "10 min read",
-    concepts: [
+    lessons: [
       {
         order: 1,
         title: "Security Fundamentals",
         slug: "security-fundamentals",
         summary:
           "Basic ideas used to protect systems, devices, networks, and information.",
-        badge: "Core Concept",
-        blocks: [
+        badge: "Core Lesson",
+        blocks: [],
+        concepts: [
           {
-            type: "paragraph",
-            text: "Security fundamentals are the basic ideas used to protect systems, devices, networks, and information from damage, theft, misuse, or unauthorized access.",
-          },
-          {
-            type: "bulletList",
-            intro: "The main goal of security is:",
-            items: [
-              "Keep information safe",
-              "Make sure systems work properly",
-              "Prevent attackers from causing harm",
+            order: 1,
+            title: "Security Fundamentals",
+            slug: "security-fundamentals",
+            summary:
+              "Basic ideas used to protect systems, devices, networks, and information.",
+            badge: "Core Concept",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Security fundamentals are the basic ideas used to protect systems, devices, networks, and information from damage, theft, misuse, or unauthorized access.",
+              },
+              {
+                type: "bulletList",
+                intro: "The main goal of security is:",
+                items: [
+                  "Keep information safe",
+                  "Make sure systems work properly",
+                  "Prevent attackers from causing harm",
+                ],
+              },
+              {
+                type: "bulletList",
+                intro:
+                  "In cybersecurity, security is not just about stopping hackers. It is also about:",
+                items: [
+                  "Reducing mistakes",
+                  "Following rules",
+                  "Protecting business operations",
+                  "Preparing for problems before they happen",
+                ],
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A hospital protects patient records by:",
+                items: [
+                  "Requiring staff logins",
+                  "Backing up files daily",
+                  "Blocking unknown USB devices",
+                  "Training employees against phishing emails",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "All of these together are part of security fundamentals.",
+              },
             ],
           },
-          {
-            type: "bulletList",
-            intro:
-              "In cybersecurity, security is not just about stopping hackers. It is also about:",
-            items: [
-              "Reducing mistakes",
-              "Following rules",
-              "Protecting business operations",
-              "Preparing for problems before they happen",
-            ],
-          },
-        ],
-        scenario: [
-          {
-            type: "bulletList",
-            intro: "A hospital protects patient records by:",
-            items: [
-              "Requiring staff logins",
-              "Backing up files daily",
-              "Blocking unknown USB devices",
-              "Training employees against phishing emails",
-            ],
-          },
-          {
-            type: "paragraph",
-            text: "All of these together are part of security fundamentals.",
-          },
-        ],
-      },
       {
         order: 2,
         title: "Confidentiality",
@@ -894,6 +919,1235 @@ export const certificationTopics: CertificationTopic[] = [
         memoryTip:
           "Job rotation = “Different people regularly handle the work.”",
       },
+        ],
+      },
+      {
+        order: 2,
+        title: "Risk Management",
+        slug: "risk-management",
+        summary: "Finding, understanding, and reducing security risks.",
+        badge: "Risk Management",
+        blocks: [],
+        concepts: [
+          {
+            order: 1,
+            title: "Risk Management",
+            slug: "risk-management",
+            summary: "Finding, understanding, and reducing security risks.",
+            badge: "Risk Management",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Risk management is the process of finding, understanding, and reducing security risks.",
+              },
+              {
+                type: "quote",
+                intro: "The goal is:",
+                text: "“Protect the organization from problems before serious damage happens.”",
+              },
+              {
+                type: "bulletList",
+                intro: "Risk management helps organizations:",
+                items: [
+                  "Prevent attacks",
+                  "Reduce financial loss",
+                  "Protect systems and data",
+                  "Make smart security decisions",
+                ],
+              },
+              {
+                type: "bulletList",
+                intro: "Basic risk management steps:",
+                items: [
+                  "Identify risks",
+                  "Analyze risks",
+                  "Decide what to do about risks",
+                  "Monitor risks over time",
+                ],
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A company realizes employees are clicking phishing emails often.",
+              },
+              {
+                type: "bulletList",
+                intro: "The company:",
+                items: [
+                  "Identifies the risk",
+                  "Analyzes how serious it is",
+                  "Provides security training",
+                  "Enables MFA",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "This is risk management.",
+              },
+            ],
+          },
+          {
+            order: 2,
+            title: "Risk Assessment",
+            slug: "risk-assessment",
+            summary:
+              "Identifying possible threats and understanding their impact.",
+            badge: "Risk Management",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Risk assessment is the process of identifying possible threats and understanding how they could affect the organization.",
+              },
+              {
+                type: "bulletList",
+                intro: "It answers:",
+                items: [
+                  "What can go wrong?",
+                  "How likely is it?",
+                  "What damage could happen?",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Risk assessments help organizations prioritize security efforts.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A hospital checks:",
+                items: [
+                  "What happens if ransomware hits?",
+                  "Which systems are most important?",
+                  "How much downtime can they handle?",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "This is a risk assessment.",
+              },
+            ],
+            memoryTip: "Risk assessment = “Finding and understanding risks.”",
+          },
+          {
+            order: 3,
+            title: "Risk Analysis",
+            slug: "risk-analysis",
+            summary: "Studying risks to determine seriousness and likelihood.",
+            badge: "Risk Analysis",
+            blocks: [
+              {
+                type: "bulletList",
+                intro: "Risk analysis means studying identified risks to determine:",
+                items: [
+                  "How serious they are",
+                  "How likely they are to happen",
+                  "What impact they could cause",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Organizations use risk analysis to decide which risks need urgent attention.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A company discovers:",
+                items: [
+                  "Phishing emails happen frequently",
+                  "Employees sometimes click them",
+                  "Financial loss could be very high",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "The company decides phishing is a high-risk issue.",
+              },
+            ],
+            memoryTip: "Risk analysis = “How bad could this risk become?”",
+          },
+          {
+            order: 4,
+            title: "Risk Treatment",
+            slug: "risk-treatment",
+            summary: "Deciding what to do about a risk.",
+            badge: "Risk Treatment",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Risk treatment means deciding what to do about a risk.",
+              },
+              {
+                type: "bulletList",
+                intro: "Organizations usually choose one of these:",
+                items: [
+                  "Accept the risk",
+                  "Avoid the risk",
+                  "Transfer the risk",
+                  "Mitigate the risk",
+                ],
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A company identifies ransomware risk and decides to:",
+                items: [
+                  "Improve backups",
+                  "Use endpoint protection",
+                  "Train employees",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "This is risk treatment.",
+              },
+            ],
+            memoryTip: "Risk treatment = “Choosing how to handle risk.”",
+          },
+          {
+            order: 5,
+            title: "Risk Acceptance",
+            slug: "risk-acceptance",
+            summary: "Knowingly living with a risk.",
+            badge: "Risk Treatment",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Risk acceptance means deciding to live with the risk because reducing it would cost too much or the risk is considered small.",
+              },
+              {
+                type: "paragraph",
+                text: "The organization knowingly accepts the possible consequences.",
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A small business decides not to buy an expensive backup internet connection because occasional downtime is acceptable.",
+              },
+              {
+                type: "paragraph",
+                text: "They accept the risk.",
+              },
+            ],
+            memoryTip: "Risk acceptance = “We know the risk and accept it.”",
+          },
+          {
+            order: 6,
+            title: "Risk Avoidance",
+            slug: "risk-avoidance",
+            summary: "Removing the activity that creates the risk.",
+            badge: "Risk Treatment",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Risk avoidance means removing the activity that creates the risk.",
+              },
+              {
+                type: "paragraph",
+                text: "This completely avoids the risk exposure.",
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A company stops allowing employees to use personal USB devices because malware infections keep happening.",
+              },
+              {
+                type: "paragraph",
+                text: "The risky activity is removed.",
+              },
+            ],
+            memoryTip: "Risk avoidance = “Avoid the risky activity completely.”",
+          },
+          {
+            order: 7,
+            title: "Risk Transfer",
+            slug: "risk-transfer",
+            summary: "Shifting financial impact to another party.",
+            badge: "Risk Treatment",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Risk transfer means shifting the financial impact of a risk to another party.",
+              },
+              {
+                type: "paragraph",
+                text: "This does NOT remove the risk itself.",
+              },
+              {
+                type: "bulletList",
+                intro: "Common methods:",
+                items: ["Insurance", "Outsourcing", "Contracts"],
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A company buys cyber insurance to help cover ransomware recovery costs.",
+              },
+              {
+                type: "paragraph",
+                text: "The financial risk is transferred to the insurance company.",
+              },
+            ],
+            memoryTip:
+              "Risk transfer = “Someone else handles the financial damage.”",
+          },
+          {
+            order: 8,
+            title: "Risk Mitigation",
+            slug: "risk-mitigation",
+            summary: "Reducing the likelihood or impact of a risk.",
+            badge: "Risk Treatment",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Risk mitigation means reducing the likelihood or impact of a risk.",
+              },
+              {
+                type: "paragraph",
+                text: "The risk still exists, but it becomes less dangerous.",
+              },
+              {
+                type: "bulletList",
+                intro: "Common mitigation controls:",
+                items: [
+                  "Firewalls",
+                  "MFA",
+                  "Backups",
+                  "Security training",
+                  "Antivirus",
+                ],
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A company enables MFA to reduce the risk of stolen passwords being used by attackers.",
+              },
+              {
+                type: "paragraph",
+                text: "The risk is reduced, not removed completely.",
+              },
+            ],
+            memoryTip: "Risk mitigation = “Reduce the risk.”",
+          },
+          {
+            order: 9,
+            title: "Residual Risk",
+            slug: "residual-risk",
+            summary: "Risk remaining after security controls are applied.",
+            badge: "Risk Analysis",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Residual risk is the remaining risk after security controls have been applied.",
+              },
+              {
+                type: "paragraph",
+                text: "No security system removes all risk completely.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A company:",
+                items: [
+                  "Installs antivirus",
+                  "Uses MFA",
+                  "Trains employees",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "But phishing attacks are still possible.",
+              },
+              {
+                type: "paragraph",
+                text: "The remaining risk is residual risk.",
+              },
+            ],
+            memoryTip: "Residual risk = “Risk left over after protection.”",
+          },
+          {
+            order: 10,
+            title: "Inherent Risk",
+            slug: "inherent-risk",
+            summary: "Natural risk before any security controls are applied.",
+            badge: "Risk Analysis",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Inherent risk is the natural level of risk before any security controls are applied.",
+              },
+              {
+                type: "paragraph",
+                text: "It is the original risk level.",
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "Online banking naturally faces high cyberattack risk even before security protections are added.",
+              },
+              {
+                type: "paragraph",
+                text: "That natural risk is inherent risk.",
+              },
+            ],
+            memoryTip: "Inherent risk = “Original risk before protection.”",
+          },
+          {
+            order: 11,
+            title: "Inherent Risk vs Residual Risk",
+            slug: "inherent-risk-vs-residual-risk",
+            summary: "Comparing original risk with remaining risk.",
+            badge: "Risk Analysis",
+            blocks: [
+              {
+                type: "subsection",
+                title: "Inherent Risk:",
+                blocks: [
+                  {
+                    type: "bulletList",
+                    items: [
+                      "Risk before controls",
+                      "Original risk level",
+                      "No protection yet",
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "Residual Risk:",
+                blocks: [
+                  {
+                    type: "bulletList",
+                    items: [
+                      "Risk after controls",
+                      "Remaining risk",
+                      "Some protection already applied",
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "Simple Example",
+                blocks: [
+                  {
+                    type: "paragraph",
+                    text: "Inherent risk = house can easily catch fire.",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Smoke alarms and extinguishers are installed.",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Residual risk = fire can still happen, but damage may be reduced.",
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            order: 12,
+            title: "Threat Modeling",
+            slug: "threat-modeling",
+            summary: "Identifying possible threats before attacks happen.",
+            badge: "Threat Modeling",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Threat modeling is the process of identifying possible threats before attacks happen.",
+              },
+              {
+                type: "paragraph",
+                text: "It helps organizations think like attackers.",
+              },
+              {
+                type: "bulletList",
+                intro: "Questions asked:",
+                items: [
+                  "What can attackers target?",
+                  "How could attacks happen?",
+                  "What protections are needed?",
+                ],
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "Before launching a mobile banking app, developers ask:",
+                items: [
+                  "Could attackers steal login details?",
+                  "Could users send fake transactions?",
+                  "Could data be intercepted?",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "This is threat modeling.",
+              },
+            ],
+            memoryTip: "Threat modeling = “Thinking ahead about attacks.”",
+          },
+          {
+            order: 13,
+            title: "Asset Valuation",
+            slug: "asset-valuation",
+            summary: "Determining how valuable an asset is to the organization.",
+            badge: "Risk Analysis",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Asset valuation means determining how valuable an asset is to the organization.",
+              },
+              {
+                type: "bulletList",
+                intro: "Assets can include:",
+                items: [
+                  "Data",
+                  "Servers",
+                  "Applications",
+                  "Employees",
+                  "Reputation",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Higher-value assets usually receive stronger protection.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro:
+                  "Customer payment data is considered very valuable because losing it could cause:",
+                items: [
+                  "Financial loss",
+                  "Legal problems",
+                  "Reputation damage",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "So the company invests heavily in protecting it.",
+              },
+            ],
+            memoryTip: "Asset valuation = “How important is this asset?”",
+          },
+          {
+            order: 14,
+            title: "Qualitative Risk Analysis",
+            slug: "qualitative-risk-analysis",
+            summary: "Using opinions, experience, and descriptive ratings.",
+            badge: "Risk Analysis",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Qualitative risk analysis uses opinions, experience, and descriptive ratings instead of exact numbers.",
+              },
+              {
+                type: "bulletList",
+                intro: "Risks are often ranked as:",
+                items: ["Low", "Medium", "High"],
+              },
+              {
+                type: "paragraph",
+                text: "This method is simpler and faster.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A company decides:",
+                items: [
+                  "Ransomware risk = High",
+                  "Printer failure risk = Low",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "No exact dollar amounts are used.",
+              },
+            ],
+            memoryTip: "Qualitative = “Words and rankings.”",
+          },
+          {
+            order: 15,
+            title: "Quantitative Risk Analysis",
+            slug: "quantitative-risk-analysis",
+            summary: "Using numbers and financial values to measure risk.",
+            badge: "Risk Analysis",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Quantitative risk analysis uses numbers and financial values to measure risk.",
+              },
+              {
+                type: "bulletList",
+                intro: "This method estimates:",
+                items: [
+                  "Cost of damage",
+                  "Likelihood of incidents",
+                  "Expected yearly loss",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "It is more detailed but takes more time.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A company calculates:",
+                items: [
+                  "A ransomware attack may cost $100,000",
+                  "It may happen once every 5 years",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "This is quantitative analysis.",
+              },
+            ],
+            memoryTip: "Quantitative = “Numbers and calculations.”",
+          },
+          {
+            order: 16,
+            title: "ALE / SLE / ARO Calculations",
+            slug: "ale-sle-aro-calculations",
+            summary: "Using SSCP risk formulas for expected loss.",
+            badge: "Risk Formula",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "These formulas are very important for SSCP exams.",
+              },
+              {
+                type: "subsection",
+                title: "SLE — Single Loss Expectancy",
+                blocks: [
+                  {
+                    type: "paragraph",
+                    text: "SLE is the amount of money lost from ONE incident.",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Formula:",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "SLE = Asset Value × Exposure Factor",
+                  },
+                  {
+                    type: "bulletList",
+                    intro: "Terms:",
+                    items: [
+                      "Asset Value (AV) = total value of the asset",
+                      "Exposure Factor (EF) = percentage of damage caused",
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "Example",
+                blocks: [
+                  {
+                    type: "paragraph",
+                    text: "A server is worth $50,000.",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "A fire may damage 40% of it.",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Formula:",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "SLE = 50,000 × 0.4 = 20,000",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "SLE = $20,000",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Meaning:",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "One fire incident could cost $20,000.",
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "ARO — Annualized Rate of Occurrence",
+                blocks: [
+                  {
+                    type: "paragraph",
+                    text: "ARO means how many times a risk is expected to happen each year.",
+                  },
+                  {
+                    type: "bulletList",
+                    intro: "Example:",
+                    items: [
+                      "Once every year = 1",
+                      "Once every 5 years = 0.2",
+                      "Twice a year = 2",
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "Easy Memory Tip",
+                blocks: [
+                  {
+                    type: "paragraph",
+                    text: "ARO = “How often per year?”",
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "ALE — Annualized Loss Expectancy",
+                blocks: [
+                  {
+                    type: "paragraph",
+                    text: "ALE estimates the yearly expected financial loss from a risk.",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Formula:",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "ALE = SLE × ARO",
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "Example",
+                blocks: [
+                  {
+                    type: "paragraph",
+                    text: "A ransomware attack:",
+                  },
+                  {
+                    type: "bulletList",
+                    items: [
+                      "SLE = $20,000",
+                      "ARO = 0.5 (once every 2 years)",
+                    ],
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Formula:",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "ALE = 20,000 × 0.5 = 10,000",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "ALE = $10,000 per year",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Meaning:",
+                  },
+                  {
+                    type: "paragraph",
+                    text: "The organization expects to lose about $10,000 yearly from this risk.",
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "Easy Formula Summary",
+                blocks: [
+                  {
+                    type: "bulletList",
+                    items: [
+                      "SLE = AV × EF = Loss from one incident",
+                      "ALE = SLE × ARO = Expected yearly loss",
+                    ],
+                  },
+                ],
+              },
+              {
+                type: "subsection",
+                title: "Super Important Exam Tip",
+                blocks: [
+                  {
+                    type: "quote",
+                    intro: "SSCP questions often ask:",
+                    text: "“What is the BEST risk treatment option?”",
+                  },
+                  {
+                    type: "bulletList",
+                    intro: "Usually:",
+                    items: [
+                      "Avoidance removes the activity",
+                      "Mitigation reduces the risk",
+                      "Transfer shifts financial responsibility",
+                      "Acceptance means knowingly living with the risk",
+                    ],
+                  },
+                  {
+                    type: "paragraph",
+                    text: "Understanding the differences clearly is much more important than memorizing definitions only.",
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      {
+        order: 3,
+        title: "Security Policies & Procedures",
+        slug: "security-policies-and-procedures",
+        summary:
+          "Written security rules for protecting systems, data, and devices.",
+        badge: "Policies",
+        blocks: [],
+        concepts: [
+          {
+            order: 1,
+            title: "Security Policies & Procedures",
+            slug: "security-policies-and-procedures",
+            summary:
+              "Written security rules for protecting systems, data, and devices.",
+            badge: "Policies",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Security policies and procedures are written rules that explain how people should protect systems, data, and devices inside an organization.",
+              },
+              {
+                type: "bulletList",
+                intro: "They help:",
+                items: [
+                  "Keep security consistent",
+                  "Reduce confusion",
+                  "Ensure employees follow the same rules",
+                  "Meet legal and business requirements",
+                ],
+              },
+              {
+                type: "quote",
+                intro: "Think of them like:",
+                text: "“The rulebook for security.”",
+              },
+            ],
+          },
+          {
+            order: 2,
+            title: "Policies",
+            slug: "policies",
+            summary:
+              "High-level management rules that explain what must happen.",
+            badge: "Policies",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Policies are high-level rules created by management that explain what employees are allowed or expected to do.",
+              },
+              {
+                type: "bulletList",
+                intro: "Policies usually:",
+                items: [
+                  "Explain goals",
+                  "Define responsibilities",
+                  "Set expectations",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Policies do NOT usually explain detailed technical steps.",
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A company policy says:",
+              },
+              {
+                type: "paragraph",
+                text: "“All employees must use MFA to access company systems.”",
+              },
+              {
+                type: "paragraph",
+                text: "The policy explains the rule, but not the exact setup steps.",
+              },
+            ],
+            memoryTip: "Policy = “What must be done.”",
+          },
+          {
+            order: 3,
+            title: "Standards",
+            slug: "standards",
+            summary: "Specific mandatory rules that support policies.",
+            badge: "Standards",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Standards are specific mandatory rules that support policies.",
+              },
+              {
+                type: "paragraph",
+                text: "Standards make sure everyone follows security in the same way.",
+              },
+              {
+                type: "paragraph",
+                text: "They are more detailed than policies.",
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A password policy says:",
+              },
+              {
+                type: "paragraph",
+                text: "“Strong passwords are required.”",
+              },
+              {
+                type: "bulletList",
+                intro: "The password standard may define:",
+                items: [
+                  "Minimum 14 characters",
+                  "Uppercase letters required",
+                  "Numbers required",
+                  "Special characters required",
+                ],
+              },
+            ],
+            memoryTip: "Standards = “Specific mandatory requirements.”",
+          },
+          {
+            order: 4,
+            title: "Procedures",
+            slug: "procedures",
+            summary: "Step-by-step instructions for performing a task.",
+            badge: "Procedures",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Procedures are step-by-step instructions explaining exactly how to perform a task.",
+              },
+              {
+                type: "paragraph",
+                text: "They are detailed and practical.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A procedure for resetting a password may include:",
+                items: [
+                  "Verify employee identity",
+                  "Open user account system",
+                  "Reset password",
+                  "Force password change at next login",
+                ],
+              },
+            ],
+            memoryTip: "Procedures = “Step-by-step instructions.”",
+          },
+          {
+            order: 5,
+            title: "Guidelines",
+            slug: "guidelines",
+            summary: "Recommended best practices when flexibility is acceptable.",
+            badge: "Guidelines",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Guidelines are recommended best practices.",
+              },
+              {
+                type: "paragraph",
+                text: "They are helpful suggestions, but not always mandatory.",
+              },
+              {
+                type: "paragraph",
+                text: "Organizations use guidelines when flexibility is acceptable.",
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "A company guideline recommends:",
+              },
+              {
+                type: "paragraph",
+                text: "“Employees should avoid using public Wi-Fi for sensitive work.”",
+              },
+              {
+                type: "paragraph",
+                text: "Employees are encouraged to follow it, but it may not be a strict rule.",
+              },
+            ],
+            memoryTip: "Guidelines = “Recommended advice.”",
+          },
+          {
+            order: 6,
+            title: "Baselines",
+            slug: "baselines",
+            summary: "Minimum security settings or requirements systems must meet.",
+            badge: "Baselines",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Baselines are minimum security settings or requirements that systems must meet.",
+              },
+              {
+                type: "paragraph",
+                text: "They create a standard starting point for security.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A company baseline for laptops may require:",
+                items: [
+                  "Antivirus enabled",
+                  "Firewall enabled",
+                  "Disk encryption enabled",
+                  "Automatic updates enabled",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Every company laptop must meet these minimum settings.",
+              },
+            ],
+            memoryTip: "Baseline = “Minimum security level.”",
+          },
+          {
+            order: 7,
+            title:
+              "Difference Between Policies, Standards, Procedures, Guidelines, and Baselines",
+            slug: "policy-standard-procedure-guideline-baseline-comparison",
+            summary:
+              "A quick comparison of the main security rule and guidance types.",
+            badge: "Comparison",
+            blocks: [
+              {
+                type: "table",
+                headers: ["Term", "Purpose"],
+                rows: [
+                  ["Policy", "High-level rule"],
+                  ["Standard", "Mandatory detailed requirement"],
+                  ["Procedure", "Step-by-step instructions"],
+                  ["Guideline", "Recommended best practice"],
+                  ["Baseline", "Minimum required security level"],
+                ],
+              },
+            ],
+          },
+          {
+            order: 8,
+            title: "Acceptable Use Policies (AUP)",
+            slug: "acceptable-use-policies",
+            summary:
+              "Rules for using company systems, devices, internet, and email.",
+            badge: "AUP",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "An Acceptable Use Policy explains how employees are allowed to use company systems, devices, internet, and email.",
+              },
+              {
+                type: "bulletList",
+                intro: "It helps prevent:",
+                items: ["Misuse", "Illegal activity", "Security problems"],
+              },
+              {
+                type: "bulletList",
+                intro: "Common AUP rules:",
+                items: [
+                  "No illegal downloads",
+                  "No offensive content",
+                  "No unauthorized software",
+                  "Limited personal use",
+                  "Follow security rules",
+                ],
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "An employee installs pirated software on a work laptop.",
+              },
+              {
+                type: "paragraph",
+                text: "This violates the Acceptable Use Policy.",
+              },
+            ],
+            memoryTip: "AUP = “Rules for using company systems.”",
+          },
+          {
+            order: 9,
+            title: "Security Awareness Policies",
+            slug: "security-awareness-policies",
+            summary:
+              "Rules for how employees learn and follow security practices.",
+            badge: "Awareness",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Security awareness policies explain how employees should learn and follow security practices.",
+              },
+              {
+                type: "quote",
+                intro: "The goal is:",
+                text: "“Teach employees how to avoid security threats.”",
+              },
+              {
+                type: "bulletList",
+                intro: "These policies often require:",
+                items: [
+                  "Security training",
+                  "Phishing awareness",
+                  "Reporting suspicious activity",
+                  "Password safety",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Humans are often the weakest security point, so awareness training is very important.",
+              },
+            ],
+            scenario: [
+              {
+                type: "paragraph",
+                text: "Employees complete phishing training every 6 months and must report suspicious emails.",
+              },
+              {
+                type: "paragraph",
+                text: "This supports the security awareness policy.",
+              },
+            ],
+            memoryTip: "Security awareness = “Teaching people to stay secure.”",
+          },
+          {
+            order: 10,
+            title: "Data Handling Procedures",
+            slug: "data-handling-procedures",
+            summary: "Rules for managing data safely throughout its life.",
+            badge: "Data Handling",
+            blocks: [
+              {
+                type: "bulletList",
+                intro: "Data handling procedures explain how data should be:",
+                items: [
+                  "Collected",
+                  "Stored",
+                  "Shared",
+                  "Protected",
+                  "Destroyed",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Different types of data may require different handling rules.",
+              },
+              {
+                type: "paragraph",
+                text: "Sensitive data usually requires stronger protection.",
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "Customer credit card information must:",
+                items: [
+                  "Be encrypted",
+                  "Only be accessed by authorized staff",
+                  "Not be emailed openly",
+                  "Be deleted securely when no longer needed",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "These are data handling procedures.",
+              },
+            ],
+            memoryTip: "Data handling = “Rules for managing data safely.”",
+          },
+          {
+            order: 11,
+            title: "Password Policies",
+            slug: "password-policies",
+            summary: "Rules for creating and managing passwords.",
+            badge: "Passwords",
+            blocks: [
+              {
+                type: "paragraph",
+                text: "Password policies define the rules for creating and managing passwords.",
+              },
+              {
+                type: "quote",
+                intro: "The goal is:",
+                text: "“Make passwords difficult for attackers to guess.”",
+              },
+              {
+                type: "bulletList",
+                intro: "Common password policy requirements:",
+                items: [
+                  "Minimum length",
+                  "Complexity requirements",
+                  "Password expiration",
+                  "Password history",
+                  "MFA usage",
+                ],
+              },
+              {
+                type: "bulletList",
+                intro: "Good password policies reduce:",
+                items: [
+                  "Brute-force attacks",
+                  "Password guessing",
+                  "Account compromise",
+                ],
+              },
+            ],
+            scenario: [
+              {
+                type: "bulletList",
+                intro: "A company password policy requires:",
+                items: [
+                  "Minimum 14 characters",
+                  "MFA enabled",
+                  "Passwords cannot be reused",
+                ],
+              },
+              {
+                type: "paragraph",
+                text: "Employees must follow these rules.",
+              },
+            ],
+            memoryTip: "Password policy = “Rules for strong passwords.”",
+          },
+        ],
+      },
     ],
     metadata: {
       title:
@@ -921,16 +2175,16 @@ export function getCertificationTopic(
   });
 }
 
-export function getCertificationTopicConcepts(topic: CertificationTopic) {
-  return [...topic.concepts].sort((firstConcept, secondConcept) => {
-    return firstConcept.order - secondConcept.order;
+export function getCertificationTopicLessons(topic: CertificationTopic) {
+  return [...topic.lessons].sort((firstLesson, secondLesson) => {
+    return firstLesson.order - secondLesson.order;
   });
 }
 
-export function getCertificationTopicConcept(
+export function getCertificationTopicLesson(
   trackSlug: CertificationTrackSlug,
   topicSlug: string,
-  conceptSlug: string,
+  lessonSlug: string,
 ) {
   const topic = getCertificationTopic(trackSlug, topicSlug);
 
@@ -938,7 +2192,32 @@ export function getCertificationTopicConcept(
     return undefined;
   }
 
-  return getCertificationTopicConcepts(topic).find((concept) => {
+  return getCertificationTopicLessons(topic).find((lesson) => {
+    return lesson.slug === lessonSlug;
+  });
+}
+
+export function getCertificationLessonConcepts(
+  lesson: CertificationTopicLesson,
+) {
+  return [...lesson.concepts].sort((firstConcept, secondConcept) => {
+    return firstConcept.order - secondConcept.order;
+  });
+}
+
+export function getCertificationLessonConcept(
+  trackSlug: CertificationTrackSlug,
+  topicSlug: string,
+  lessonSlug: string,
+  conceptSlug: string,
+) {
+  const lesson = getCertificationTopicLesson(trackSlug, topicSlug, lessonSlug);
+
+  if (!lesson) {
+    return undefined;
+  }
+
+  return getCertificationLessonConcepts(lesson).find((concept) => {
     return concept.slug === conceptSlug;
   });
 }
