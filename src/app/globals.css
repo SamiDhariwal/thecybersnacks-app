@@ -2397,6 +2397,172 @@ a {
     outline: 2px solid var(--primary-gold);
     outline-offset: 0.35rem;
   }
+
+  .studio-auth-page,
+  .studio-page {
+    display: grid;
+    align-items: center;
+  }
+
+  .studio-auth-shell,
+  .studio-shell {
+    display: grid;
+    min-height: calc(100vh - 14rem);
+    place-items: center;
+  }
+
+  .studio-auth-card,
+  .studio-panel {
+    position: relative;
+    display: grid;
+    width: min(100%, 27rem);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background:
+      linear-gradient(135deg, rgba(var(--gold-rgb), 0.052), transparent 48%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055), transparent 56%),
+      var(--surface);
+    box-shadow: var(--card-shadow);
+    padding: 1.2rem;
+  }
+
+  .studio-panel {
+    width: min(100%, 34rem);
+    gap: 1.2rem;
+  }
+
+  .studio-auth-card::before,
+  .studio-panel::before {
+    position: absolute;
+    top: 0;
+    left: 1.2rem;
+    height: 2px;
+    width: 3.35rem;
+    background: linear-gradient(90deg, rgba(var(--gold-rgb), 0.62), transparent);
+    content: "";
+  }
+
+  .studio-auth-heading,
+  .studio-panel-heading,
+  .studio-status {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .studio-title {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.02;
+  }
+
+  .studio-auth-form {
+    display: grid;
+    gap: 0.95rem;
+    margin-top: 1.3rem;
+  }
+
+  .studio-field {
+    display: grid;
+    gap: 0.42rem;
+  }
+
+  .studio-label {
+    color: var(--foreground);
+    font-size: 0.86rem;
+    font-weight: 600;
+  }
+
+  .studio-input {
+    min-height: 3rem;
+    width: 100%;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background: rgba(3, 3, 3, 0.52);
+    color: var(--foreground);
+    font: inherit;
+    padding: 0.78rem 0.9rem;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .studio-input:focus {
+    border-color: rgba(var(--gold-rgb), 0.55);
+    box-shadow: 0 0 0 3px rgba(var(--gold-rgb), 0.12);
+    outline: none;
+  }
+
+  .studio-auth-error {
+    border: 1px solid rgba(248, 113, 113, 0.28);
+    border-radius: 0.5rem;
+    background: rgba(127, 29, 29, 0.18);
+    color: #fecaca;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    padding: 0.78rem 0.9rem;
+  }
+
+  .studio-auth-button {
+    display: inline-flex;
+    min-height: 3rem;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(var(--gold-rgb), 0.42);
+    border-radius: 0.5rem;
+    background: var(--primary-gold);
+    color: #090909;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    padding: 0.78rem 1rem;
+    text-decoration: none;
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      transform 180ms ease;
+  }
+
+  .studio-auth-button:hover {
+    border-color: rgba(var(--gold-rgb), 0.62);
+    background: var(--hover-gold);
+    transform: translateY(-1px);
+  }
+
+  .studio-auth-button:focus-visible {
+    outline: 2px solid var(--primary-gold);
+    outline-offset: 0.35rem;
+  }
+
+  .studio-auth-button:disabled {
+    cursor: progress;
+    opacity: 0.72;
+    transform: none;
+  }
+
+  .studio-success {
+    color: var(--foreground);
+    font-family: var(--font-rajdhani), Arial, Helvetica, sans-serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .studio-email {
+    overflow-wrap: anywhere;
+    color: var(--muted);
+    font-size: 0.96rem;
+    line-height: 1.55;
+  }
+
+  .studio-logout-button {
+    width: fit-content;
+    min-width: 8rem;
+  }
 }
 
 @media (min-width: 640px) {
@@ -2877,7 +3043,9 @@ a {
   .about-focus-card,
   .contact-method-card,
   .contact-card-action,
-  .footer-social-link {
+  .footer-social-link,
+  .studio-input,
+  .studio-auth-button {
     transition: none;
   }
 
@@ -2894,7 +3062,8 @@ a {
   .supporting-video-link:hover,
   .about-focus-card:hover,
   .contact-method-card:hover,
-  .footer-social-link:hover {
+  .footer-social-link:hover,
+  .studio-auth-button:hover {
     transform: none;
   }
 }
