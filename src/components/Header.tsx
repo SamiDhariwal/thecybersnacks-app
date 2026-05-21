@@ -19,6 +19,10 @@ export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const mobileMenuId = "mobile-menu";
 
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
+
   function isActiveLink(href: string) {
     return href === "/" ? pathname === "/" : pathname.startsWith(href);
   }

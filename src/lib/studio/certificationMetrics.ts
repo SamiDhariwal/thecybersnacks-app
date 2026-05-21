@@ -7,8 +7,11 @@ import {
   getCertificationLessonConcepts,
   getCertificationTopicLessons,
   getCertificationTopics,
+  type CertificationTopicConcept,
+  type CertificationTopicLesson,
   type CertificationTopic,
 } from "@/lib/certificationTopics";
+import type { ContentBlock, ContentBlockType } from "@/lib/studio/contentTypes";
 
 export type StudioContentStatus = "Active" | "Draft" | "Empty";
 
@@ -17,7 +20,22 @@ export type StudioCertificationDomain = {
   lessonCount: number;
   publicHref?: string;
   status: StudioContentStatus;
+  studioHref: string;
   topic: CertificationTopic;
+};
+
+export type StudioLessonSummary = {
+  conceptCount: number;
+  lesson: CertificationTopicLesson;
+  status: StudioContentStatus;
+  studioHref: string;
+};
+
+export type StudioConceptSummary = {
+  blockCount: number;
+  concept: CertificationTopicConcept;
+  status: StudioContentStatus;
+  studioHref: string;
 };
 
 export type StudioCertificationSummary = {
@@ -55,6 +73,35 @@ function getDomainPublicHref(topic: CertificationTopic) {
   return `/certifications/${topic.trackSlug}/${topic.slug}`;
 }
 
+export function getStudioCertificationHref(trackSlug: string) {
+  return `/studio/certifications/${trackSlug}`;
+}
+
+export function getStudioDomainHref(trackSlug: string, domainSlug: string) {
+  return `${getStudioCertificationHref(trackSlug)}/domains/${domainSlug}`;
+}
+
+export function getStudioLessonHref(
+  trackSlug: string,
+  domainSlug: string,
+  lessonSlug: string,
+) {
+  return `${getStudioDomainHref(trackSlug, domainSlug)}/lessons/${lessonSlug}`;
+}
+
+export function getStudioConceptHref(
+  trackSlug: string,
+  domainSlug: string,
+  lessonSlug: string,
+  conceptSlug: string,
+) {
+  return `${getStudioLessonHref(
+    trackSlug,
+    domainSlug,
+    lessonSlug,
+  )}/concepts/${conceptSlug}`;
+}
+
 export function getStudioCertificationSummary(
   track: CertificationTrack,
 ): StudioCertificationSummary {
@@ -70,6 +117,7 @@ export function getStudioCertificationSummary(
       lessonCount,
       publicHref: getDomainPublicHref(topic),
       status: getStatus(1, lessonCount, conceptCount),
+      studioHref: getStudioDomainHref(track.slug, topic.slug),
       topic,
     };
   });
@@ -118,4 +166,166 @@ export function getStudioContentTotals() {
       return total + summary.lessonCount;
     }, 0),
   };
+}
+
+export function getStudioDomainSummary(trackSlug: string, domainSlug: string) {
+  const certification = getStudioCertificationSummaryBySlug(trackSlug);
+
+  if (!certification) {
+    return undefined;
+  }
+
+  const domain = certification.domains.find((currentDomain) => {
+    return currentDomain.topic.slug === domainSlug;
+  });
+
+  if (!domain) {
+    return undefined;
+  }
+
+  const lessons = getCertificationTopicLessons(domain.topic).map((lesson) => {
+    const conceptCount = getCertificationLessonConcepts(lesson).length;
+
+    return {
+      conceptCount,
+      lesson,
+      status: getStatus(1, 1, conceptCount),
+      studioHref: getStudioLessonHref(trackSlug, domainSlug, lesson.slug),
+    };
+  });
+
+  return {
+    certification,
+    domain,
+    lessons,
+  };
+}
+
+export function getStudioLessonSummary(
+  trackSlug: string,
+  domainSlug: string,
+  lessonSlug: string,
+) {
+  const domainSummary = getStudioDomainSummary(trackSlug, domainSlug);
+
+  if (!domainSummary) {
+    return undefined;
+  }
+
+  const lessonSummary = domainSummary.lessons.find((currentLesson) => {
+    return currentLesson.lesson.slug === lessonSlug;
+  });
+
+  if (!lessonSummary) {
+    return undefined;
+  }
+
+  const concepts = getCertificationLessonConcepts(lessonSummary.lesson).map(
+    (concept) => {
+      const blockCount = getStudioConceptContentBlocks(concept).length;
+
+      return {
+        blockCount,
+        concept,
+        status: getStatus(1, 1, blockCount),
+        studioHref: getStudioConceptHref(
+          trackSlug,
+          domainSlug,
+          lessonSlug,
+          concept.slug,
+        ),
+      };
+    },
+  );
+
+  return {
+    ...domainSummary,
+    concepts,
+    lesson: lessonSummary,
+  };
+}
+
+export function getStudioConceptSummary(
+  trackSlug: string,
+  domainSlug: string,
+  lessonSlug: string,
+  conceptSlug: string,
+) {
+  const lessonSummary = getStudioLessonSummary(
+    trackSlug,
+    domainSlug,
+    lessonSlug,
+  );
+
+  if (!lessonSummary) {
+    return undefined;
+  }
+
+  const conceptSummary = lessonSummary.concepts.find((currentConcept) => {
+    return currentConcept.concept.slug === conceptSlug;
+  });
+
+  if (!conceptSummary) {
+    return undefined;
+  }
+
+  return {
+    ...lessonSummary,
+    blocks: getStudioConceptContentBlocks(conceptSummary.concept),
+    concept: conceptSummary,
+  };
+}
+
+function blockTitle(
+  blockType: CertificationTopicConcept["blocks"][number]["type"],
+  index: number,
+) {
+  if (blockType === "paragraph" && index === 0) {
+    return "Definition";
+  }
+
+  return "Key points";
+}
+
+export function getStudioConceptContentBlocks(
+  concept: CertificationTopicConcept,
+): ContentBlock[] {
+  const textBlocks: ContentBlock[] = concept.blocks.map((block, index) => {
+    const type: ContentBlockType =
+      block.type === "quote" ? "Focus Block" : "Text Block";
+
+    return {
+      conceptId: concept.slug,
+      id: `${concept.slug}-block-${index + 1}`,
+      order: index + 1,
+      title: blockTitle(block.type, index),
+      type,
+    };
+  });
+
+  const scenarioBlocks = concept.scenario
+    ? [
+        {
+          conceptId: concept.slug,
+          id: `${concept.slug}-scenario`,
+          order: textBlocks.length + 1,
+          title: "Scenario example",
+          type: "Scenario Example" as const,
+        },
+      ]
+    : [];
+
+  const studyTipBlocks = concept.memoryTip
+    ? [
+        {
+          conceptId: concept.slug,
+          id: `${concept.slug}-study-tip`,
+          order: textBlocks.length + scenarioBlocks.length + 1,
+          title: "Study tip",
+          type: "Study Tip" as const,
+        },
+      ]
+    : [];
+
+  return [...textBlocks, ...scenarioBlocks, ...studyTipBlocks];
 }

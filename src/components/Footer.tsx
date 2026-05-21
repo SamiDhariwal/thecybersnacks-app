@@ -1,7 +1,15 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { socialLinks } from "@/lib/socialLinks";
 
 export function Footer() {
+  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
+
+  if (pathname.startsWith("/studio")) {
+    return null;
+  }
 
   return (
     <footer className="site-footer">
